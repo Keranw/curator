@@ -1,0 +1,31 @@
+<div class="div_statebar">
+  <div class="state_bar_left">
+    <label class="label_left">Hello <%=current_dealer["contact_name"]%></label>
+  </div>
+  <div class="state_bar_right">
+    <div class="div_statebar_left">
+      <label class="label_state">
+        <%=state_helper(current_dealer["verified"])%>
+      </label>
+    </div>
+    <div class="div_statebar_right">
+      <div class="div_statebar_left">
+        <div class="div_statebar_left">
+          <% if current_dealer["brand"] != 0 %>
+            <img class="image_avatar" src='<%=image_url("brand/#{current_dealer["brand"]}.png")%>'>
+          <% end %>
+        </div>
+        <div class="div_statebar_right">
+          <label class="label_right">
+            <%=name_helper(current_dealer["company_name"])%>
+          </label>
+        </div>
+      </div>
+      <div class="div_statebar_right">
+        <form action="/logout" method="GET">
+          <input type="submit" class="button_logoff" value="Logout">
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

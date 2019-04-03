@@ -1,0 +1,38 @@
+// Place all the styles related to the user controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.user_login_div_middle{
+  text-align: center;
+  margin-top: 10%;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+.input_search{
+  width: 80%;
+  height: 40px;
+  margin-bottom: 20px;
+  margin-left: 40px;
+  border-radius: 20px;
+  border: 1px solid #B9C5DB;
+  text-indent:6px;
+}
+
+.button_search{
+  border-radius:100px;
+  width:120px;
+  height:40px;
+  margin-right: 30px;
+  margin-top: 42px;
+  border: 0px;
+}
+
+.a_import{
+  font-family:Avenir-Medium;
+  font-size:18px;
+  color:#4374fe;
+  letter-spacing:0px;
+  background: url("https://s3-ap-southeast-2.amazonaws.com/dmpc.asset/add.png")no-repeat 0 0;
+  padding-left: 33px;
+  margin-right: 200px;
+}
