@@ -1,0 +1,108 @@
+<%if session[:account_type] == "educator"%>
+  <%= render 'layouts/educatorsidebar' %>
+<%else%>
+  <%= render 'layouts/curatorsidebar' %>
+<%end%>
+
+<div class="div_statebar">
+  <div class="state_bar_left">
+    <label class="label_statebar">Hello, user!</label>
+  </div>
+  <div class="state_bar_right">
+    <form action="/user/logout" method="GET">
+      <input type="submit" class="button_logoff" value="Logout">
+    </form>
+  </div>
+</div>
+
+<br>
+<div class="div_page_background">
+  <label class="label_page_title">Account Management</label><br><br>
+  <div class="div_account">
+
+    <div class="div_am_left">
+      <label class="label_am_title">Profiles</label><br>
+      <button class="button_am" data-toggle="modal" data-target="#edit_profile"></button>
+    </div>
+
+    <div class="div_am_right">
+      <div class="div_page_left">
+        <label class="label_am_key">Username</label>
+      </div>
+      <div class="div_page_right">
+          <label class="label_am_value">user</label>
+      </div><br>
+      <hr class="hr_am"></hr>
+
+      <div class="div_page_left">
+        <label class="label_am_key">Email</label>
+      </div>
+      <div class="div_page_right">
+        <label class="label_am_value">user@edu.com</label>
+      </div><br>
+      <hr class="hr_am"></hr>
+      <div class="div_page_left">
+        <label class="label_am_key">Password</label>
+      </div>
+      <div class="div_page_right">
+        <button class="button_resetpw" data-toggle="modal" data-target="#reset_password">Reset</button>
+      </div><br>
+    </div>
+  </div>
+
+
+</div>
+
+
+
+<div class="modal fade" id="edit_profile" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content edit_modal_frame">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="margin-top:5px;margin-right:10px;">
+        &times;
+      </button>
+
+      <div class="modal-body edit_modal_container">
+        <form action = '/user/profile_update' method = "POST">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <p><br>
+          <h4><%= flash[:edit_dealer_info_error] %></h4>
+          <input name="id" type="hidden">
+          <label class="label_title">Username</label><br>
+          <input type="text" name="username" required="true" class="input_edit" value="user"><br>
+          <label class="label_title">Email</label><br>
+          <input type="text" name="email" required="true" class="input_edit" value="user@edu.com"><br>
+        </p>
+        <input type="submit" class="button_profile_update btn-success" value="Update"><br>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="reset_password" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content edit_modal_frame">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="margin-top:5px;margin-right:10px;">
+        &times;
+      </button>
+
+      <div class="modal-body edit_modal_container">
+        <form action = '/user/password_update' method = "POST">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <p><br>
+          <h4><%= flash[:edit_dealer_info_error] %></h4>
+          <input name="id" type="hidden">
+          <label class="label_title">New Password</label><br>
+          <input type="password" name="username" required="true" class="input_edit"><br>
+          <label class="label_title">Confirmation</label><br>
+          <input type="password" name="email" required="true" class="input_edit"><br>
+        </p>
+        <input type="submit" class="button_profile_update btn-success" value="Update"><br>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>

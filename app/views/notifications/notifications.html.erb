@@ -1,0 +1,64 @@
+<%if session[:account_type] == "educator"%>
+  <%= render 'layouts/educatorsidebar' %>
+<%else%>
+  <%= render 'layouts/curatorsidebar' %>
+<%end%>
+
+<div class="div_statebar">
+  <div class="state_bar_left">
+    <label class="label_statebar">Hello, user!</label>
+  </div>
+  <div class="state_bar_right">
+    <form action="/user/logout" method="GET">
+      <input type="submit" class="button_logoff" value="Logout">
+    </form>
+  </div>
+</div>
+
+<br>
+<div class="div_page_background">
+  <label class="label_page_title">Notifications</label><br><br>
+
+  <div class="div_message">
+    <div class="div_page_left">
+      <label class="label_text">The metadata of your course have been updated.
+    </div>
+    <div class="div_page_right">
+      <form action="/courses/detail" method="get">
+        <input name="authenticity_token" type="hidden" value=<%=form_authenticity_token%>></input>
+        <input name="id" type="hidden" ></input>
+        <input type="submit" value="Detail" class="button_detail"></input>
+        <input type="submit" value="Dismiss" class="button_dismiss btn-success" disabled></input>
+      </form>
+    </div>
+  </div>
+
+  <div class="div_message">
+    <div class="div_page_left">
+      <label class="label_text">One of the atoms in your course have been updated.
+    </div>
+    <div class="div_page_right">
+      <form action="/courses/detail/items" method="get">
+        <input name="authenticity_token" type="hidden" value=<%=form_authenticity_token%>></input>
+        <input name="id" type="hidden" ></input>
+        <input type="submit" value="Detail" class="button_detail"></input>
+        <input type="submit" value="Dismiss" class="button_dismiss btn-success" disabled></input>
+      </form>
+    </div>
+  </div>
+
+  <div class="div_message">
+    <div class="div_page_left">
+      <label class="label_text">One of the atoms in your course have been deleted.
+    </div>
+    <div class="div_page_right">
+      <form action="/courses/detail" method="get">
+        <input name="authenticity_token" type="hidden" value=<%=form_authenticity_token%>></input>
+        <input name="id" type="hidden" ></input>
+        <input type="submit" value="Detail" class="button_detail"></input>
+        <input type="submit" value="Dismiss" class="button_dismiss btn-success" disabled></input>
+      </form>
+    </div>
+  </div>
+
+</div>

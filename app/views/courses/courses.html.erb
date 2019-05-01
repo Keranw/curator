@@ -1,0 +1,113 @@
+<%if session[:account_type] == "educator"%>
+  <%= render 'layouts/educatorsidebar' %>
+<%else%>
+  <%= render 'layouts/curatorsidebar' %>
+<%end%>
+
+<div class="div_statebar">
+  <div class="state_bar_left">
+    <label class="label_statebar">Hello, user!</label>
+  </div>
+  <div class="state_bar_right">
+    <form action="/user/logout" method="GET">
+      <input type="submit" class="button_logoff" value="Logout">
+    </form>
+  </div>
+</div>
+
+<br>
+<div class="div_page_background">
+  <div class="div_page_left">
+    <label class="label_page_title">Courses</label>
+  </div>
+  <div class="div_page_right" style="margin-top:23px;">
+    <%if session[:account_type] == 'curator' %>
+      <a href="javascript:void(0);" class="a_createnew" data-toggle="modal" data-target="#cnm">Create New</a>
+      <a href="javascript:void(0);" class="a_import" data-toggle="modal" data-target="#myModal">Import</a>
+    <%end%>
+  </div>
+
+  <div class="div_courses_background">
+    <tr>
+      <div class="div_courses_container_active">
+        <label class="label_ctitle">MIT 8.0111 Spring 2011</label>
+        <label class="label_cstate">Active</label><br>
+        <label class="label_cid">(MIT80111SPRING2011)</label><br>
+        <label class="label_cinfo">Univeristy Physics with Modern Physics, 12e</label><br>
+        <label class="label_cinfo">Young/Freeman</label>
+        <form method="get" action="/courses/detail">
+          <input name="authenticity_token" type="hidden" value="<%=form_authenticity_token%>">
+          <input class="button_course_detail" type="submit" value="Detail">
+        </form>
+      </div>
+    </tr>
+
+    <tr>
+      <div class="div_courses_container_inactive">
+        <label class="label_ctitle">MIT 8.0111 Spring 2010</label>
+        <label class="label_cstate_ip">Inactive</label><br>
+        <label class="label_cid">(MIT80111SPRING2010)</label><br>
+        <label class="label_cinfo">Univeristy Physics with Modern Physics, 12e</label><br>
+        <label class="label_cinfo">Young/Freeman</label>
+        <form method="get" action="/courses/detail">
+          <input name="authenticity_token" type="hidden" value="<%=form_authenticity_token%>">
+          <input class="button_course_detail" type="submit" value="Detail">
+        </form>
+      </div>
+    </tr>
+
+    <tr>
+      <div class="div_courses_container_inactive">
+        <label class="label_ctitle">MIT 8.0111 Spring 2012</label>
+        <label class="label_cstate_ip">Inactive</label><br>
+        <label class="label_cid">(MIT80111SPRING2012)</label><br>
+        <label class="label_cinfo">Univeristy Physics with Modern Physics, 12e</label><br>
+        <label class="label_cinfo">Young/Freeman</label>
+        <form method="get" action="/courses/detail">
+          <input name="authenticity_token" type="hidden" value="<%=form_authenticity_token%>">
+          <input class="button_course_detail" type="submit" value="Detail">
+        </form>
+      </div>
+    </tr>
+
+  </div>
+</div>
+
+
+<div class="modal fade" id="cnm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content edit_modal_frame">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="margin-top:5px;margin-right:10px;">
+      &times;
+      </button>
+      <div class="modal-body edit_modal_container">
+        <form action = '/user/import' method = "POST">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <p><br>
+          <input type="file" name="data_file" required="true"><br>
+        </p>
+        <input type="submit" class="button_dashboard btn-success" value="Import"><br>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content edit_modal_frame">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="margin-top:5px;margin-right:10px;">
+      &times;
+      </button>
+      <div class="modal-body edit_modal_container">
+        <form action = '/user/import' method = "POST">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <p><br>
+          <input type="file" name="data_file" required="true"><br>
+        </p>
+        <input type="submit" class="button_dashboard btn-success" value="Import"><br>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

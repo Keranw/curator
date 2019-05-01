@@ -8,8 +8,8 @@ class UserController < ApplicationController
     if params["username"] == "educator" && params["password"] == "educator"
       session[:account_type] = "educator"
       redirect_to user_dashboard_path
-    elsif params["username"] == "student" && params["password"] == "student"
-      session[:account_type] = "student"
+    elsif params["username"] == "curator" && params["password"] == "curator"
+      session[:account_type] = "curator"
       redirect_to user_dashboard_path
     else
       flash[:login_error] = "Please conform and try again!"
@@ -23,20 +23,7 @@ class UserController < ApplicationController
     redirect_to root_path
   end
 
-  def dashboard
-  end
-
-  def account_management
-  end
-
   def recommends
-  end
-
-  def notifications
-  end
-
-  def import
-    redirect_to user_metadata_path
   end
 
 end

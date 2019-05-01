@@ -1,0 +1,61 @@
+<%if session[:account_type] == "educator"%>
+  <%= render 'layouts/educatorsidebar' %>
+<%else%>
+  <%= render 'layouts/curatorsidebar' %>
+<%end%>
+
+<div class="div_statebar">
+  <div class="state_bar_left">
+    <label class="label_statebar">Hello, user!</label>
+  </div>
+  <div class="state_bar_right">
+    <form action="/user/logout" method="GET">
+      <input type="submit" class="button_logoff" value="Logout">
+    </form>
+  </div>
+</div>
+
+
+<br>
+<div class="div_page_background">
+  <label class="label_page_title">Item Details</label>
+  <br><br>
+
+  <div class="div_meta_background">
+
+    <div class="div_cd_left">
+      <label class="label_dtitle">Metadata</label>
+    </div>
+    <div class="div_cd_right">
+      <div class="div_page_left">
+        <label class="label_cd_key">ID</label>
+      </div>
+      <div class="div_page_right">
+          <label class="label_cd_value">1</label>
+      </div><br>
+      <hr class="hr_cd"></hr>
+      <div class="div_page_left">
+        <label class="label_cd_key">Title</label>
+      </div>
+      <div class="div_page_right">
+          <label class="label_cd_value">Understanding Work and Kinetc Energy</label>
+      </div><br>
+      <hr class="hr_cd"></hr>
+      <div class="div_page_left">
+        <label class="label_cd_key">Time</label>
+      </div>
+      <div class="div_page_right">
+          <label class="label_cd_value">19m</label>
+      </div><br>
+      <hr class="hr_cd"></hr>
+      <div class="div_page_left">
+        <label class="label_cd_key">Difficulty</label>
+      </div>
+      <div class="div_page_right">
+          <label class="label_cd_value">1</label>
+      </div>
+    </div>
+  </div>
+
+
+</div>

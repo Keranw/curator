@@ -1,0 +1,232 @@
+// Place all the styles related to the courses controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.a_import{
+  font-family:Avenir-Medium;
+  font-size:18px;
+  color:#4374fe;
+  letter-spacing:0px;
+  background: url("https://s3-ap-southeast-2.amazonaws.com/dmpc.asset/add.png")no-repeat 0 0;
+  padding-left: 33px;
+  margin-right: 100px;
+}
+
+.a_createnew{
+  font-family:Avenir-Medium;
+  font-size:18px;
+  color:#4374fe;
+  letter-spacing:0px;
+  background: url("https://s3-ap-southeast-2.amazonaws.com/dmpc.asset/add.png")no-repeat 0 0;
+  padding-left: 33px;
+  margin-right: 20px;
+}
+
+.div_courses_background{
+  margin-left: 80px;
+  margin-top: 70px;
+}
+
+.div_courses_container_active{
+  background:#ffffff;
+  border:2px solid #52c373;
+  border-radius:4px;
+  width:600px;
+  height:240px;
+  margin:10px;
+  display: inline-block;
+}
+
+.div_courses_container_inactive{
+  background:#ffffff;
+  box-shadow:0px 1px 3px 0px rgba(202,208,211,0.60);
+  border-radius:4px;
+  width:600px;
+  height:240px;
+  margin:10px;
+  display: inline-block;
+}
+
+.div_course_detail_background{
+  margin-left: 90px;
+  margin-top: 70px;
+}
+
+.div_meta_background{
+  background:#ffffff;
+  box-shadow:0px 1px 3px 0px rgba(202,208,211,0.60);
+  border-radius:4px;
+  width:850px;
+  height:240px;
+  margin-bottom: 30px;
+  margin-left: 90px;
+}
+
+.div_item{
+  background:#ffffff;
+  box-shadow:0px 1px 3px 0px rgba(202,208,211,0.60);
+  border-radius:4px;
+  width:850px;
+  height:68px;
+  margin-top:10;
+  margin-bottom: 0;
+  margin-left: 90px;
+}
+
+.div_cd_left{
+  display: inline-block;
+  float:left;
+  width:211px;
+  height:240px;
+}
+
+.div_cd_right{
+  display: inline-block;
+  float:right;
+  width:639px;
+  height:240px;
+}
+
+.label_ittitle{
+
+}
+
+.label_dtitle{
+  font-family:Avenir-Medium;
+  font-size:18px;
+  color:#a9b9d3;
+  letter-spacing:0px;
+  margin-left: 70px;
+  margin-top: 80px;
+}
+
+.label_ctitle{
+  font-family:Avenir-Medium;
+  margin-left: 15px;
+  margin-top: 15px;
+  font-size:25px;
+  color:#1a234a;
+}
+
+.label_cstate{
+  margin-top: 15px;
+  margin-right: 30px;
+  float: right;
+  font-family:Avenir-Medium;
+  font-size:16px;
+  color:#52c373;
+  letter-spacing:0px;
+}
+
+.label_cstate_ip{
+  margin-top: 15px;
+  margin-right: 30px;
+  float: right;
+  font-family:Avenir-Medium;
+  font-size:16px;
+  color:gray;
+  letter-spacing:0px;
+}
+
+.label_cinfo{
+  font-family:Avenir-Medium;
+  margin-left: 15px;
+  margin-top: 10px;
+  font-size:15px;
+  color:#1a234a;
+}
+
+.label_cid{
+  font-family:Avenir-Medium;
+  margin-left: 15px;
+  margin-top: 5px;
+  font-size:15px;
+  color:gray;
+}
+
+.label_cd_key{
+  font-family:Avenir-Medium;
+  font-size:16px;
+  color:#52c373;
+  letter-spacing:0px;
+  margin-top: 18px;
+  margin-left: 15px;
+  margin-bottom: 18px;
+}
+
+.label_cd_value{
+  font-family:Avenir-Medium;
+  font-size:18px;
+  color:#1a234a;
+  letter-spacing:0px;
+  margin-top: 17px;
+  margin-right: 30px;
+}
+
+.label_item_description{
+  font-family:Avenir-Medium;
+  font-size:14px;
+}
+
+.hr_cd{
+  border:1px solid #e6ecee;
+  width:630px;
+  margin-bottom: 0px;
+}
+
+.button_course_detail{
+  color: #51C373;
+  background-color: white;
+  border-color: #51C373;
+  border:1px solid #52c373;
+  border-radius:100px;
+  width:80px;
+  height:40px;
+  margin-top: 13px;
+  margin-right: 20px;
+  float: right;
+}
+
+.button_course_detail:hover{
+  color: #2A7D2B;
+  background-color: white;
+  border-color: #2A7D2B;
+  border:1px solid #2A7D2B;
+  border-radius:100px;
+  width:80px;
+  height:40px;
+  margin-top: 13px;
+  margin-right: 20px;
+  float: right;
+}
+
+.table_course_info{
+  height: auto;
+  width: 1000px;
+  background-color: white;
+  box-shadow:0px 1px 3px 0px rgba(202,208,211,0.60);
+  border-radius:5px;
+  font-family:Avenir-Medium;
+  font-size:16px;
+  letter-spacing: normal;
+  margin-left: 90px;
+}
+
+.td_item{
+  height: 50px;
+  text-indent:30px;
+  width: 10%;
+}
+
+.button_link {
+  background-color: transparent;
+  text-decoration: underline;
+  border: none;
+  color: blue;
+  cursor: pointer;
+  padding-left: 0px;
+  font-family:Avenir-Medium;
+  font-size:20px;
+}
+.button_link:focus {
+  outline: none;
+}

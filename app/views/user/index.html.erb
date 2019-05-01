@@ -1,13 +1,36 @@
-<div>
-  <div class="user_login_div_middle"><br>
+<div class="div_lg_left" >
+  <%=image_tag('login_background.jpg', class:"background")%>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+  $(window).resize(function()
+  {
+      if ($(window).width() <= 1000) {
+          $(".div_lg_left").css("width", "60%");
+          $(".div_lg_right").css("width", "60%");
+          $(".div_lg_right").css("height", "120%");
+          $(".div_lg_left").css("float", "none");
+
+          $(".div_lg_right").css("float", "none");
+          // $("body").css("min-width","350px");
+          $(".div_lg_left").css("height","auto");
+          $(".background").css("height","auto");
+      }
+      else
+          location.reload();
+  });
+</script>
+<div class="div_lg_right">
+  <div class="div_middle"><br>
+    <label class="label_lg_name">Curator</label><br>
     <form action='/user/login' method='post'>
     <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-    <label >Username</label><br>
-    <input  name="username" required="true" type="text"><br><br>
-    <label >Password </label><br>
-    <input  name="password" required="true" type="password"><br><br>
-    <input type="submit" value="Login" class="btn-success"><br><br>
-    </form>
+    <label class="label_lg_title">Username</label><br>
+    <input  name="username" required="true" type="text" class="input_login"><br><br>
+    <label class="label_lg_title">Password </label><br>
+    <input  name="password" required="true" type="password" class="input_login"><br><br>
     <label style="color:red;"><%= flash[:login_error] %></label><br>
+    <input type="submit" value="Login" class="btn-success input_button"><br><br>
+    </form>
   </div>
 </div>

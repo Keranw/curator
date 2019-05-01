@@ -1,0 +1,132 @@
+// Place all the styles related to the account_management controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.div_account{
+  background:#ffffff;
+  box-shadow:0px 1px 3px 0px rgba(202,208,211,0.60);
+  border-radius:4px;
+  width:850px;
+  height:180px;
+  margin-bottom: 30px;
+  margin-left: 90px;
+}
+
+.div_am_left{
+  display: inline-block;
+  float:left;
+  width:211px;
+  height:180px;
+}
+
+.div_am_right{
+  display: inline-block;
+  float:right;
+  width:639px;
+  height:180px;
+}
+
+.edit_modal_frame{
+  margin-top: 30px;
+  margin-left: 30px;
+  width: 400px;
+  height: 350px;
+}
+
+.edit_modal_container{
+  margin-top: 20px;
+  margin-left: 50px;
+}
+
+.label_am_title{
+  font-family:Avenir-Medium;
+  font-size:18px;
+  color:#a9b9d3;
+  letter-spacing:0px;
+  margin-left: 70px;
+  margin-top: 60px;
+}
+
+.label_am_key{
+  font-family:Avenir-Medium;
+  font-size:16px;
+  color:#52c373;
+  letter-spacing:0px;
+  margin-top: 18px;
+  margin-left: 15px;
+  margin-bottom: 18px;
+}
+
+.label_am_value{
+  font-family:Avenir-Medium;
+  font-size:18px;
+  color:#1a234a;
+  letter-spacing:0px;
+  margin-top: 17px;
+  margin-right: 30px;
+}
+
+.button_am{
+  width:25px;
+  height:25px;
+  background: url("https://s3-ap-southeast-2.amazonaws.com/dmpc.asset/edit.png") no-repeat 0 0;
+  border:0;
+  margin-left: 90px;
+  margin-top: 6px;
+}
+
+.button_resetpw{
+  margin-top: 17px;
+  margin-right: 30px;
+  color: #51C373;
+  background-color: white;
+  border-color: #51C373;
+  border:1px solid #52c373;
+  border-radius:100px;
+  width:80px;
+  height:30px;
+}
+
+.button_resetpw:hover{
+  margin-top: 17px;
+  margin-right: 30px;
+  color: #2A7D2B;
+  background-color: white;
+  border-color: #2A7D2B;
+  border:1px solid #2A7D2B;
+  border-radius:100px;
+  width:80px;
+  height:30px;
+}
+
+.button_profile_update{
+  margin-top: 13%;
+  border-radius: 20px;
+  height: 40px;
+  width: 30%;
+  border: 0px;
+}
+
+.hr_am{
+  border:1px solid #e6ecee;
+  width:630px;
+  margin-bottom: 0px;
+}
+
+.div_page_left{
+  float: left;
+  display: inline;
+}
+
+.div_page_right{
+  float: right;
+  display: inline;
+}
+
+.input_edit{
+  width: 80%;
+  height: 30px;
+  margin-bottom: 10px;
+  border-radius: 20px;
+  border: 1px solid #B9C5DB;
+  text-indent:6px;
+}

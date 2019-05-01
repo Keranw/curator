@@ -1,0 +1,148 @@
+<%if session[:account_type] == "educator"%>
+  <%= render 'layouts/educatorsidebar' %>
+<%else%>
+  <%= render 'layouts/curatorsidebar' %>
+<%end%>
+
+<div class="div_statebar">
+  <div class="state_bar_left">
+    <label class="label_statebar">Hello, user!</label>
+  </div>
+  <div class="state_bar_right">
+    <form action="/user/logout" method="GET">
+      <input type="submit" class="button_logoff" value="Logout">
+    </form>
+  </div>
+</div>
+
+<br>
+<div class="div_page_background">
+  <label class="label_page_title">Course Details</label>
+  <br><br>
+  <!--
+  <div class="div_course_detail_background">
+    <table border="8" class="table_course_info" rules="none" cellspacing="10">
+    <tr>
+      <th>Course Name</th>
+      <td>MIT 8.0111 Spring 2011</td>
+    </tr>
+    <tr>
+      <th>Course ID</th>
+      <td>MIT80111SPRING2011</td>
+    </tr>
+    <tr>
+      <th>Department</th>
+      <td>Univeristy Physics with Modern Physics, 12e</td>
+    </tr>
+      <th>Curator</th>
+      <td>Young/Freeman</td>
+    </table>
+  </div>
+  -->
+  <div class="div_meta_background">
+
+    <div class="div_cd_left">
+      <label class="label_dtitle">Metadata</label>
+    </div>
+    <div class="div_cd_right">
+      <div class="div_page_left">
+        <label class="label_cd_key">Course Name</label>
+      </div>
+      <div class="div_page_right">
+          <label class="label_cd_value">MIT 8.0111 Spring 2011</label>
+      </div><br>
+      <hr class="hr_cd"></hr>
+      <div class="div_page_left">
+        <label class="label_cd_key">Course ID</label>
+      </div>
+      <div class="div_page_right">
+          <label class="label_cd_value">MIT80111SPRING2011</label>
+      </div><br>
+      <hr class="hr_cd"></hr>
+      <div class="div_page_left">
+        <label class="label_cd_key">Department</label>
+      </div>
+      <div class="div_page_right">
+          <label class="label_cd_value">Univeristy Physics with Modern Physics, 12e</label>
+      </div><br>
+      <hr class="hr_cd"></hr>
+      <div class="div_page_left">
+        <label class="label_cd_key">Curator</label>
+      </div>
+      <div class="div_page_right">
+          <label class="label_cd_value">Young/Freeman</label>
+      </div>
+    </div>
+  </div>
+
+  <label class="label_page_title">Course Items</label>
+  <br><br>
+
+  <table border="1" class="table_course_info" frame="void" rules="none" cellspacing="10">
+    <tr>
+      <th class="td_item">ID</th>
+      <th width=10%>TYPE</th>
+      <th width=35%>TITLE</th>
+      <th width=10%>TIME</th>
+      <th width=15%>DIFFICULTY</th>
+      <th width=20%>USAGE STATISTIC</th>
+    </tr>
+    <tr>
+      <td class="td_item">1</td>
+      <td>Tutorial</td>
+      <td>
+        <form method="get" action="/courses/detail/items">
+          <input name="authenticity_token" type="hidden" value="<%=form_authenticity_token%>">
+          <input type="submit" class="button_link" value="Understanding Work and Kinetc Energy"></input><br>
+        </form>
+        <label class="label_item_description">Contains several conceptual and computational questions related to the work-engergy theorem, including a derivation of the therorem in the case of constant acceleration.</label>
+      </td>
+      <td>19m</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td class="td_item">2</td>
+      <td>Tutorial</td>
+      <td>
+        <form method="get" action="/courses/detail/items">
+          <input name="authenticity_token" type="hidden" value="<%=form_authenticity_token%>">
+          <input type="submit" class="button_link" value="Understanding Work Done by a Constant Force"></input><br>
+        </form>
+        <label class="label_item_description">Explains the equation W=Fd and provides students with an oppotunity to work through some common examples.</label>
+      </td>
+      <td>9m</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td class="td_item">3</td>
+      <td>Tutorial</td>
+      <td>
+        <form method="get" action="/courses/detail/items">
+          <input name="authenticity_token" type="hidden" value="<%=form_authenticity_token%>">
+          <input type="submit" class="button_link" value="Woek from a Constant Force"></input><br>
+        </form>
+        <label class="label_item_description">Compute the work done by a constant force acting on a particle moving in a straignt line.</label>
+      </td>
+      <td>7m</td>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td class="td_item">4</td>
+      <td>Tutorial</td>
+      <td>
+        <form method="get" action="/courses/detail/items">
+          <input name="authenticity_token" type="hidden" value="<%=form_authenticity_token%>">
+          <input type="submit" class="button_link" value="Work-Energy Theorem Reviewed"></input><br>
+        </form>
+        <label class="label_item_description">Simple questions about the work-energy theorem to test understanding, then one easy analytic question applying the theorem.</label>
+      </td>
+      <td>13m</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+  </table>
+
+</div>
