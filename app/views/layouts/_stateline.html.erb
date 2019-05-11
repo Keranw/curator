@@ -1,0 +1,14 @@
+<div class="div_statebar">
+  <div class="state_bar_left">
+    <%if session[:account_type] == 'curator' %>
+      <label class="label_statebar">Hello, curator!</label>
+    <%else%>
+      <label class="label_statebar">Hello, educator!</label>
+    <%end%>
+  </div>
+  <div class="state_bar_right">
+    <form action="/user/logout" method="GET">
+      <input type="submit" class="button_logoff" value="Logout">
+    </form>
+  </div>
+</div>

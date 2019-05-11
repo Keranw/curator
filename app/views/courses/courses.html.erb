@@ -4,16 +4,7 @@
   <%= render 'layouts/curatorsidebar' %>
 <%end%>
 
-<div class="div_statebar">
-  <div class="state_bar_left">
-    <label class="label_statebar">Hello, user!</label>
-  </div>
-  <div class="state_bar_right">
-    <form action="/user/logout" method="GET">
-      <input type="submit" class="button_logoff" value="Logout">
-    </form>
-  </div>
-</div>
+<%= render 'layouts/stateline'%>
 
 <br>
 <div class="div_page_background">
@@ -22,6 +13,7 @@
   </div>
   <div class="div_page_right" style="margin-top:23px;">
     <%if session[:account_type] == 'curator' %>
+      <!--a href="/user/new_course" class="a_createnew">Create New</a-->
       <a href="javascript:void(0);" class="a_createnew" data-toggle="modal" data-target="#cnm">Create New</a>
       <a href="javascript:void(0);" class="a_import" data-toggle="modal" data-target="#myModal">Import</a>
     <%end%>
@@ -76,17 +68,24 @@
 
 <div class="modal fade" id="cnm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
-    <div class="modal-content edit_modal_frame">
+    <div class="modal-content modal_metadata_frame">
       <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="margin-top:5px;margin-right:10px;">
       &times;
       </button>
-      <div class="modal-body edit_modal_container">
-        <form action = '/user/import' method = "POST">
+      <div class="modal-body modal_container">
+        <form action = '#' method = "POST">
         <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
         <p><br>
-          <input type="file" name="data_file" required="true"><br>
+          <label class="label_title">Course Name</label><br>
+          <input type="text" name="course_name" required="true" class="input_edit"><br>
+          <label class="label_title">Course ID</label><br>
+          <input type="text" name="course_id" required="true" class="input_edit"><br>
+          <label class="label_title">Department</label><br>
+          <input type="text" name="department" required="true" class="input_edit"><br>
+          <label class="label_title">Curator</label><br>
+          <input type="email" name="curator" required="true" class="input_edit"><br>
         </p>
-        <input type="submit" class="button_dashboard btn-success" value="Import"><br>
+        <input type="submit" class="button_cd_update btn-success" value="Create"><br>
         </form>
       </div>
     </div>
@@ -105,7 +104,7 @@
         <p><br>
           <input type="file" name="data_file" required="true"><br>
         </p>
-        <input type="submit" class="button_dashboard btn-success" value="Import"><br>
+        <input type="submit" class="button_cd_update btn-success" value="Import"><br>
         </form>
       </div>
     </div>

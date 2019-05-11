@@ -4,21 +4,17 @@
   <%= render 'layouts/curatorsidebar' %>
 <%end%>
 
-<div class="div_statebar">
-  <div class="state_bar_left">
-    <label class="label_statebar">Hello, user!</label>
-  </div>
-  <div class="state_bar_right">
-    <form action="/user/logout" method="GET">
-      <input type="submit" class="button_logoff" value="Logout">
-    </form>
-  </div>
-</div>
+<%= render 'layouts/stateline'%>
 
 <br>
 <div class="div_page_background">
-  <label class="label_page_title">Course Details</label>
+  <div class="div_cm_left">
+    <label class="label_page_title">Course Details</label>
+  </div>
+  <div class="div_cm_right">
+  </div>
   <br><br>
+
   <!--
   <div class="div_course_detail_background">
     <table border="8" class="table_course_info" rules="none" cellspacing="10">
@@ -39,10 +35,14 @@
     </table>
   </div>
   -->
+
   <div class="div_meta_background">
 
     <div class="div_cd_left">
-      <label class="label_dtitle">Metadata</label>
+      <label class="label_dtitle">Metadata</label><br>
+      <%if session[:account_type] == 'curator' %>
+        <button class="button_metadata" data-toggle="modal" data-target="#metadata"></button>
+      <%end%>
     </div>
     <div class="div_cd_right">
       <div class="div_page_left">
@@ -71,21 +71,35 @@
       </div>
       <div class="div_page_right">
           <label class="label_cd_value">Young/Freeman</label>
-      </div>
+      </div><br>
     </div>
+  </div><br>
+
+
+
+  <div class="div_ci_left">
+    <label class="label_ittitle">Course Items</label>
   </div>
 
-  <label class="label_page_title">Course Items</label>
-  <br><br>
+  <div class="div_ci_right">
+    <%if session[:account_type] == 'curator' %>
+      <!--a href="/user/new_course" class="a_createnewi">Add New</a-->
+      <a href="javascript:void(0);" class="a_createnewi" data-toggle="modal" data-target="#cni">Add New</a>
+    <%end%>
+  </div>
 
   <table border="1" class="table_course_info" frame="void" rules="none" cellspacing="10">
     <tr>
       <th class="td_item">ID</th>
       <th width=10%>TYPE</th>
-      <th width=35%>TITLE</th>
-      <th width=10%>TIME</th>
-      <th width=15%>DIFFICULTY</th>
-      <th width=20%>USAGE STATISTIC</th>
+      <th width=30%>TITLE</th>
+      <th width=6%>TIME</th>
+      <th width=6%>POINT</th>
+      <th width=10%>DIFFICULTY</th>
+      <th width=15%>USAGE STATISTIC</th>
+      <%if session[:account_type] == 'curator' %>
+        <th width=18%>MANAGEMENT</th>
+      <%end%>
     </tr>
     <tr>
       <td class="td_item">1</td>
@@ -98,8 +112,19 @@
         <label class="label_item_description">Contains several conceptual and computational questions related to the work-engergy theorem, including a derivation of the therorem in the case of constant acceleration.</label>
       </td>
       <td>19m</td>
+      <td>3</td>
       <td>1</td>
       <td>1</td>
+      <%if session[:account_type] == 'curator' %>
+        <td>
+          <!--form method="get" action="/courses/detail/items" class="form_edit">
+            <input name="authenticity_token" type="hidden" value="<%=form_authenticity_token%>">
+            <input type="submit" class="btn-success button_item_edit" value="Edit">
+          </form-->
+          <button class="btn-success button_item_edit" data-toggle="modal" data-target="#eni">Edit</button>
+          <button class="btn-danger button_item_edit">Delete</button>
+        </td>
+      <%end%>
     </tr>
     <tr>
       <td class="td_item">2</td>
@@ -112,8 +137,19 @@
         <label class="label_item_description">Explains the equation W=Fd and provides students with an oppotunity to work through some common examples.</label>
       </td>
       <td>9m</td>
+      <td>4</td>
       <td>1</td>
       <td>1</td>
+      <%if session[:account_type] == 'curator' %>
+        <td>
+          <!--form method="get" action="/courses/detail/items" class="form_edit">
+            <input name="authenticity_token" type="hidden" value="<%=form_authenticity_token%>">
+            <input type="submit" class="btn-success button_item_edit" value="Edit">
+          </form-->
+          <button class="btn-success button_item_edit" data-toggle="modal" data-target="#eni">Edit</button>
+          <button class="btn-danger button_item_edit">Delete</button>
+        </td>
+      <%end%>
     </tr>
     <tr>
       <td class="td_item">3</td>
@@ -127,7 +163,18 @@
       </td>
       <td>7m</td>
       <td>2</td>
+      <td>2</td>
       <td>1</td>
+      <%if session[:account_type] == 'curator' %>
+        <td>
+          <!--form method="get" action="/courses/detail/items" class="form_edit">
+            <input name="authenticity_token" type="hidden" value="<%=form_authenticity_token%>">
+            <input type="submit" class="btn-success button_item_edit" value="Edit">
+          </form-->
+          <button class="btn-success button_item_edit" data-toggle="modal" data-target="#eni">Edit</button>
+          <button class="btn-danger button_item_edit">Delete</button>
+        </td>
+      <%end%>
     </tr>
     <tr>
       <td class="td_item">4</td>
@@ -140,9 +187,109 @@
         <label class="label_item_description">Simple questions about the work-energy theorem to test understanding, then one easy analytic question applying the theorem.</label>
       </td>
       <td>13m</td>
+      <td>0</td>
       <td>1</td>
       <td>1</td>
+      <%if session[:account_type] == 'curator' %>
+        <td>
+          <!--form method="get" action="/courses/detail/items" class="form_edit">
+            <input name="authenticity_token" type="hidden" value="<%=form_authenticity_token%>">
+            <input type="submit" class="btn-success button_item_edit" value="Edit">
+          </form-->
+          <button class="btn-success button_item_edit" data-toggle="modal" data-target="#eni">Edit</button>
+          <button class="btn-danger button_item_edit">Delete</button>
+        </td>
+      <%end%>
     </tr>
   </table>
 
+
+
+</div>
+
+<div class="modal fade" id="metadata" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content modal_metadata_frame">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="margin-top:5px;margin-right:10px;">
+        &times;
+      </button>
+      <div class="modal-body edit_modal_container">
+        <form action = '#' method = "POST">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <p><br>
+          <label class="label_title">Course Name</label><br>
+          <input type="text" name="course_name" required="true" class="input_edit" value="MIT 8.0111 Spring 2011"><br>
+          <label class="label_title">Course ID</label><br>
+          <input type="text" name="course_id" required="true" class="input_edit" value="MIT80111SPRING2011"><br>
+          <label class="label_title">Department</label><br>
+          <input type="text" name="department" required="true" class="input_edit" value="Univeristy Physics with Modern Physics, 12e"><br>
+          <label class="label_title">Curator</label><br>
+          <input type="email" name="curator" required="true" class="input_edit" value="Young/Freeman"><br>
+        </p>
+        <input type="submit" class="button_cd_update btn-success" value="Update"><br>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="cni" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content modal_item_frame">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="margin-top:5px;margin-right:10px;">
+      &times;
+      </button>
+      <div class="modal-body modal_container">
+        <form action = '#' method = "POST">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <p><br>
+          <label class="label_title">Title </label><br>
+          <input type="text" name="title" required="true" class="input_edit"><br>
+          <label class="label_title">Type</label><br>
+          <input type="text" name="type" required="true" class="input_edit"><br>
+          <label class="label_title">Time</label><br>
+          <input type="text" name="time" required="true" class="input_edit"><br>
+          <label class="label_title">Point</label><br>
+          <input type="text" name="point" required="true" class="input_edit"><br>
+          <label class="label_title">Difficulty</label><br>
+          <input type="text" name="difficulty" required="true" class="input_edit"><br>
+          <label class="label_title">Description</label><br>
+          <textarea name="description" class="textarea_login" required="true"></textarea><br>
+        </p>
+        <input type="submit" class="button_cd_update btn-success" value="Add"><br>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="eni" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content modal_item_frame">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="margin-top:5px;margin-right:10px;">
+      &times;
+      </button>
+      <div class="modal-body modal_container">
+        <form action = '#' method = "POST">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <p><br>
+          <label class="label_title">Title </label><br>
+          <input type="text" name="title" required="true" class="input_edit" value="Understanding Work and Kinetc Energy">
+          <br>
+          <label class="label_title">Type</label><br>
+          <input type="text" name="type" required="true" class="input_edit" value="Tutorial"><br>
+          <label class="label_title">Time(m)</label><br>
+          <input type="text" name="time" required="true" class="input_edit" value="19"><br>
+          <label class="label_title">Point(credits)</label><br>
+          <input type="text" name="point" required="true" class="input_edit" value="3"><br>
+          <label class="label_title">Difficulty(5=hardest)</label><br>
+          <input type="text" name="difficulty" required="true" class="input_edit" value="1"><br>
+          <label class="label_title">Description</label><br>
+          <textarea name="description" class="textarea_login" required="true">Contains several conceptual and computational questions related to the work-engergy theorem, including a derivation of the therorem in the case of constant acceleration.</textarea><br>
+        </p>
+        <input type="submit" class="button_cd_update btn-success" value="Add"><br>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>

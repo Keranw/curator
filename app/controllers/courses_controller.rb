@@ -1,4 +1,5 @@
 class CoursesController < ApplicationController
+
   def courses
   end
 
@@ -19,4 +20,11 @@ class CoursesController < ApplicationController
 
   def item_detail
   end
+
+  def new_item
+  end
+
+  def create_item
+  end
+
 end

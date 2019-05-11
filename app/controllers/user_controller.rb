@@ -15,6 +15,16 @@ class UserController < ApplicationController
       flash[:login_error] = "Please conform and try again!"
       redirect_to root_path
     end
+=begin
+    params["email"] = params["email"].downcase
+    aim_user = User.find_by(email: params[:email])
+    if aim_user&&aim_user.authenticate(params[:password])
+      redirect_to user_dashboard_path
+    else
+      flash[:login_error] = "Please conform and try again!"
+      redirect_to root_path
+    end
+=end
   end
 
   def logout

@@ -21,4 +21,6 @@ Rails.application.routes.draw do
   post 'user/create' => 'courses#create'
   get 'courses/detail' => 'courses#course_detail'
   get 'courses/detail/items' => 'courses#item_detail'
+  get 'courses/new_item' => 'courses#new_item'
+  post 'courses/create_item' => 'courses#create_item'
   end
