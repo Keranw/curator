@@ -19,8 +19,9 @@ Rails.application.routes.draw do
   post 'user/import' => 'courses#import'
   get 'user/new_course' => 'courses#new_course'
   post 'user/create' => 'courses#create'
+  post 'user/update' => 'courses#update'
   get 'courses/detail' => 'courses#course_detail'
   get 'courses/detail/items' => 'courses#item_detail'
   get 'courses/new_item' => 'courses#new_item'
-  post 'courses/create_item' => 'courses#create_item'
+  post 'courses/create_atom' => 'courses#create_atom'
   end
