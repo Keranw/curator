@@ -24,4 +24,7 @@ Rails.application.routes.draw do
   get 'courses/detail/items' => 'courses#item_detail'
   get 'courses/new_item' => 'courses#new_item'
   post 'courses/create_atom' => 'courses#create_atom'
+  post 'courses/update_atom' => 'courses#update_atom'
+  post 'courses/delete_atom' => 'courses#delete_atom'
+  
   end

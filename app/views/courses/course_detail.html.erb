@@ -91,7 +91,7 @@
 
   <table border="1" class="table_course_info" frame="void" rules="none" cellspacing="10">
     <tr>
-      <th class="td_item">ID</th>
+      <th class="td_item">#</th>
       <th width=10%>TYPE</th>
       <th width=30%>TITLE</th>
       <th width=6%>TIME</th>
@@ -102,110 +102,47 @@
         <th width=18%>MANAGEMENT</th>
       <%end%>
     </tr>
-    <tr>
-      <td class="td_item">1</td>
-      <td>Tutorial</td>
-      <td>
-        <form method="get" action="/courses/detail/items">
-          <input name="authenticity_token" type="hidden" value="<%=form_authenticity_token%>">
-          <input type="submit" class="button_link" value="Understanding Work and Kinetc Energy"></input><br>
-        </form>
-        <label class="label_item_description">Contains several conceptual and computational questions related to the work-engergy theorem, including a derivation of the therorem in the case of constant acceleration.</label>
-      </td>
-      <td>19m</td>
-      <td>3</td>
-      <td>1</td>
-      <td>1</td>
-      <%if session[:account_type] == 'curator' %>
-        <td>
-          <!--form method="get" action="/courses/detail/items" class="form_edit">
-            <input name="authenticity_token" type="hidden" value="<%=form_authenticity_token%>">
-            <input type="submit" class="btn-success button_item_edit" value="Edit">
-          </form-->
-          <button class="btn-success button_item_edit" data-toggle="modal" data-target="#eni">Edit</button>
-          <button class="btn-danger button_item_edit">Delete</button>
-        </td>
+    <%count = 0%>
+    <%@aim_course["atoms"].each do |atom|%>
+      <%aim_atom = Atom.find(atom.to_i)%>
+      <%if aim_atom["state"] == 0%>
+        <%count += 1%>
+        <tr>
+          <td class="td_item"><%=count%></td>
+          <td><%=aim_atom["atype"]%></td>
+          <td>
+            <form method="get" action="/courses/detail/items">
+              <input name="authenticity_token" type="hidden" value="<%=form_authenticity_token%>">
+              <input name="aid" type="hidden" value="<%=aim_atom["id"]%>">
+              <input type="submit" class="button_link" value="<%=aim_atom["title"]%>"></input><br>
+            </form>
+            <label class="label_item_description"><%=aim_atom["description"]%></label>
+          </td>
+          <td><%=aim_atom["time"]%>m</td>
+          <td><%=aim_atom["point"]%></td>
+          <td><%=aim_atom["difficulty"]%></td>
+          <td>NULL</td>
+          <%if session[:account_type] == 'curator' %>
+            <td>
+              <form method="get" action="/courses/detail/items" class="form_edit">
+                <input name="authenticity_token" type="hidden" value="<%=form_authenticity_token%>">
+                <input name="aid" type="hidden" value="<%=aim_atom["id"]%>">
+                <input type="submit" class="btn-success button_item_edit" value="Edit">
+              </form>
+              <!--button class="btn-success button_item_edit" data-toggle="modal" data-target="#eni">Edit</button-->
+              <!--button class="btn-danger button_item_edit">Delete</button-->
+              <form method="post" action="/courses/delete_atom" class="form_edit">
+                <input name="authenticity_token" type="hidden" value="<%=form_authenticity_token%>">
+                <input name="aid" type="hidden" value="<%=aim_atom["id"]%>">
+                <input type="hidden" name="cid" value="<%=@aim_course["id"]%>">
+                <input type="submit" class="btn-danger button_item_edit" value="Delete" onclick="javascript:return del()">
+              </form>
+            </td>
+          <%end%>
+        </tr>
       <%end%>
-    </tr>
-    <tr>
-      <td class="td_item">2</td>
-      <td>Tutorial</td>
-      <td>
-        <form method="get" action="/courses/detail/items">
-          <input name="authenticity_token" type="hidden" value="<%=form_authenticity_token%>">
-          <input type="submit" class="button_link" value="Understanding Work Done by a Constant Force"></input><br>
-        </form>
-        <label class="label_item_description">Explains the equation W=Fd and provides students with an oppotunity to work through some common examples.</label>
-      </td>
-      <td>9m</td>
-      <td>4</td>
-      <td>1</td>
-      <td>1</td>
-      <%if session[:account_type] == 'curator' %>
-        <td>
-          <!--form method="get" action="/courses/detail/items" class="form_edit">
-            <input name="authenticity_token" type="hidden" value="<%=form_authenticity_token%>">
-            <input type="submit" class="btn-success button_item_edit" value="Edit">
-          </form-->
-          <button class="btn-success button_item_edit" data-toggle="modal" data-target="#eni">Edit</button>
-          <button class="btn-danger button_item_edit">Delete</button>
-        </td>
-      <%end%>
-    </tr>
-    <tr>
-      <td class="td_item">3</td>
-      <td>Tutorial</td>
-      <td>
-        <form method="get" action="/courses/detail/items">
-          <input name="authenticity_token" type="hidden" value="<%=form_authenticity_token%>">
-          <input type="submit" class="button_link" value="Woek from a Constant Force"></input><br>
-        </form>
-        <label class="label_item_description">Compute the work done by a constant force acting on a particle moving in a straignt line.</label>
-      </td>
-      <td>7m</td>
-      <td>2</td>
-      <td>2</td>
-      <td>1</td>
-      <%if session[:account_type] == 'curator' %>
-        <td>
-          <!--form method="get" action="/courses/detail/items" class="form_edit">
-            <input name="authenticity_token" type="hidden" value="<%=form_authenticity_token%>">
-            <input type="submit" class="btn-success button_item_edit" value="Edit">
-          </form-->
-          <button class="btn-success button_item_edit" data-toggle="modal" data-target="#eni">Edit</button>
-          <button class="btn-danger button_item_edit">Delete</button>
-        </td>
-      <%end%>
-    </tr>
-    <tr>
-      <td class="td_item">4</td>
-      <td>Tutorial</td>
-      <td>
-        <form method="get" action="/courses/detail/items">
-          <input name="authenticity_token" type="hidden" value="<%=form_authenticity_token%>">
-          <input type="submit" class="button_link" value="Work-Energy Theorem Reviewed"></input><br>
-        </form>
-        <label class="label_item_description">Simple questions about the work-energy theorem to test understanding, then one easy analytic question applying the theorem.</label>
-      </td>
-      <td>13m</td>
-      <td>0</td>
-      <td>1</td>
-      <td>1</td>
-      <%if session[:account_type] == 'curator' %>
-        <td>
-          <!--form method="get" action="/courses/detail/items" class="form_edit">
-            <input name="authenticity_token" type="hidden" value="<%=form_authenticity_token%>">
-            <input type="submit" class="btn-success button_item_edit" value="Edit">
-          </form-->
-          <button class="btn-success button_item_edit" data-toggle="modal" data-target="#eni">Edit</button>
-          <button class="btn-danger button_item_edit">Delete</button>
-        </td>
-      <%end%>
-    </tr>
+    <%end%>
   </table>
-
-
-
 </div>
 
 <div class="modal fade" id="metadata" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -296,3 +233,14 @@
     </div>
   </div>
 </div>
+
+<SCRIPT LANGUAGE=javascript>
+function del() {
+  var msg = "Are you sure? ";
+  if (confirm(msg)==true){
+    return true;
+  }else{
+    return false;
+  }
+}
+</SCRIPT>

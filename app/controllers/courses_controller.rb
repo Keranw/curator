@@ -29,6 +29,8 @@ class CoursesController < ApplicationController
   end
 
   def item_detail
+    #params aid:integer
+    @aim_atom = Atom.find(params["aid"].to_i)
   end
 
   def new_item
@@ -37,6 +39,16 @@ class CoursesController < ApplicationController
   def create_atom
     aid = Atom.create_atom(params)
     Course.insert_atom(params["cid"], aid)
+    redirect_to courses_detail_path(:authenticity_token=>form_authenticity_token,:id=>params["cid"])
+  end
+
+  def update_atom
+    Atom.update_atom(params)
+    redirect_to courses_detail_items_path(:authenticity_token=>form_authenticity_token,:aid=>params["aid"])
+  end
+
+  def delete_atom
+    Atom.delete_atom(params)
     redirect_to courses_detail_path(:authenticity_token=>form_authenticity_token,:id=>params["cid"])
   end
 
