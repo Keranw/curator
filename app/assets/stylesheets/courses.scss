@@ -51,6 +51,22 @@
   margin-top: 10px;
 }
 
+.iframe_atom{
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.div_atom_block{
+  background:#ffffff;
+  box-shadow:0 1px 3px 0 rgba(202,208,211,0.60);
+  border-radius:4px;
+  width:1000px;
+  height:400px;
+  margin-top: 24px;
+  margin-left: 40px;
+  display: inline-block;
+}
+
 .div_courses_background{
   margin-left: 80px;
   margin-top: 70px;
@@ -96,8 +112,9 @@
   background:#ffffff;
   box-shadow:0px 1px 3px 0px rgba(202,208,211,0.60);
   border-radius:4px;
-  width:850px;
-  height:300px;
+  width:900px;
+  height:600px;
+  //height:300px;
   margin-bottom: 30px;
   margin-left: 40px;
   display: inline-block;
@@ -118,14 +135,14 @@
   display: inline-block;
   float:left;
   width:211px;
-  height:240px;
+  height:300px;
 }
 
 .div_cd_right{
   display: inline-block;
   float:right;
   width:639px;
-  height:240px;
+  height:300px;
 }
 
 .div_cm_left{
@@ -143,7 +160,7 @@
   display: inline-block;
   float:left;
   height: 59px;
-  margin-right: 850px;
+  margin-right: 1000px;
 }
 
 .div_ci_right{
@@ -173,7 +190,7 @@
   font-size:18px;
   color:#a9b9d3;
   letter-spacing:0px;
-  margin-left: 70px;
+  margin-left: 90px;
   margin-top: 120px;
 }
 
@@ -231,6 +248,16 @@
   margin-bottom: 18px;
 }
 
+.label_cd_key2{
+  font-family:Avenir-Medium;
+  font-size:16px;
+  color:#52c373;
+  letter-spacing:0px;
+  margin-top: 18px;
+  margin-left: 40px;
+  margin-bottom: 18px;
+}
+
 .label_cd_value{
   font-family:Avenir-Medium;
   font-size:18px;
@@ -242,7 +269,7 @@
 
 .label_item_description{
   font-family:Avenir-Medium;
-  font-size:14px;
+  font-size:12px;
 }
 
 .label_title{
@@ -252,9 +279,27 @@
   margin-bottom: 2%;
 }
 
+.label_primary{
+  font-family:Avenir-Medium;
+  font-size:14px;
+  color:#1a234a;
+}
+
+.label_secondary{
+  font-family:Avenir-Medium;
+  font-size:12px;
+  color:gray;
+}
+
 .hr_cd{
   border:1px solid #e6ecee;
-  width:630px;
+  width:600px;
+  margin-bottom: 0px;
+}
+
+.hr_cd2{
+  border:1px solid #e6ecee;
+  width:859px;
   margin-bottom: 0px;
 }
 
@@ -295,7 +340,7 @@
 .table_course_info{
   height: auto;
   //width: auto;
-  width: 1100px;
+  width: 1250px;
   background-color: white;
   box-shadow:0px 1px 3px 0px rgba(202,208,211,0.60);
   border-radius:5px;
@@ -327,7 +372,7 @@
   height:25px;
   background: url("https://s3-ap-southeast-2.amazonaws.com/dmpc.asset/edit.png") no-repeat 0 0;
   border:0;
-  margin-left: 88px;
+  margin-left: 108px;
   //margin-top: 6px;
 }
 
@@ -339,7 +384,7 @@
   cursor: pointer;
   padding-left: 0px;
   font-family:Avenir-Medium;
-  font-size:20px;
+  font-size:16px;
 }
 .button_link:focus {
   outline: none;
@@ -366,7 +411,7 @@
   margin-top: 200px;
   margin-left: 50px;
   width: 600px;
-  height: 850px;
+  height: 800px;
 }
 
 .modal_container{

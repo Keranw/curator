@@ -79,7 +79,7 @@
 
 
   <div class="div_ci_left">
-    <label class="label_ittitle">Course Items</label>
+    <label class="label_ittitle">Course Atoms</label>
   </div>
 
   <div class="div_ci_right">
@@ -92,14 +92,16 @@
   <table border="1" class="table_course_info" frame="void" rules="none" cellspacing="10">
     <tr>
       <th class="td_item">#</th>
-      <th width=10%>TYPE</th>
-      <th width=30%>TITLE</th>
-      <th width=6%>TIME</th>
-      <th width=6%>POINT</th>
-      <th width=10%>DIFFICULTY</th>
-      <th width=15%>USAGE STATISTIC</th>
+      <th width=10%>AUTHOR</th>
+      <th width=20%>TITLE</th>
+      <th width=5%>TIME</th>
+      <th width=8%>DIFFICULTY</th>
+      <th width=5%>IRT</th>
+      <th width=12%>TOPIC1</th>
+      <th width=12%>TOPIC2</th>
+      <th width=10%>TAGS</th>
       <%if session[:account_type] == 'curator' %>
-        <th width=18%>MANAGEMENT</th>
+        <th width=14%>MANAGEMENT</th>
       <%end%>
     </tr>
     <%count = 0%>
@@ -109,7 +111,10 @@
         <%count += 1%>
         <tr>
           <td class="td_item"><%=count%></td>
-          <td><%=aim_atom["atype"]%></td>
+          <td>
+            <label class="label_primary"><%=aim_atom["author"]%></label><br>
+            <label class="label_secondary"><%=aim_atom["institution"]%></label>
+          </td>
           <td>
             <form method="get" action="/courses/detail/items">
               <input name="authenticity_token" type="hidden" value="<%=form_authenticity_token%>">
@@ -118,10 +123,22 @@
             </form>
             <label class="label_item_description"><%=aim_atom["description"]%></label>
           </td>
-          <td><%=aim_atom["time"]%>m</td>
-          <td><%=aim_atom["point"]%></td>
-          <td><%=aim_atom["difficulty"]%></td>
-          <td>NULL</td>
+          <!--td><%=aim_atom["time"]%></td>
+          <td><%=aim_atom["difficulty"]%></td-->
+          <td>Nil</td>
+          <td>Nil</td>
+          <td>Nil</td>
+          <td>
+            <label class="label_primary"><%=aim_atom["topic1"]%><br>
+            <label class="label_secondary"><%=aim_atom["lo1"]%>
+          </td>
+          <td>
+            <label class="label_primary"><%=aim_atom["topic2"]%><br>
+            <label class="label_secondary"><%=aim_atom["lo2"]%>
+          </td>
+          <td>
+            <label class="label_primary"><%=aim_atom["tags"]%>
+          </td>
           <%if session[:account_type] == 'curator' %>
             <td>
               <form method="get" action="/courses/detail/items" class="form_edit">
@@ -183,18 +200,20 @@
         <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
         <p><br>
           <input type="hidden" name="cid" value="<%=@aim_course["id"]%>">
-          <label class="label_title">Title </label><br>
+          <label class="label_title">Title</label><br>
           <input type="text" name="title" required="true" class="input_edit"><br>
-          <label class="label_title">Type</label><br>
-          <input type="text" name="type" required="true" class="input_edit"><br>
-          <label class="label_title">Time</label><br>
-          <input type="text" name="time" required="true" class="input_edit"><br>
-          <label class="label_title">Point</label><br>
-          <input type="text" name="point" required="true" class="input_edit"><br>
-          <label class="label_title">Difficulty</label><br>
-          <input type="text" name="difficulty" required="true" class="input_edit"><br>
-          <label class="label_title">Description</label><br>
-          <textarea name="description" class="textarea_login" required="true"></textarea><br>
+          <label class="label_title">One sentence description</label><br>
+          <input type="text" name="description" required="true" class="input_edit"><br>
+          <label class="label_title">Topic 1</label><br>
+          <input type="text" name="t1" required="true" class="input_edit"><br>
+          <label class="label_title">Learning Object 1</label><br>
+          <input type="text" name="lo1" required="true" class="input_edit"><br>
+          <label class="label_title">Topic 2</label><br>
+          <input type="text" name="t2" required="true" class="input_edit"><br>
+          <label class="label_title">Learning Object 2</label><br>
+          <input type="text" name="lo2" required="true" class="input_edit"><br>
+          <label class="label_title">Tags (Please split with comma)</label><br>
+          <input type="text" name="tags" required="true" class="input_edit"><br>
         </p>
         <input type="submit" class="button_cd_update btn-success" value="Add"><br>
         </form>

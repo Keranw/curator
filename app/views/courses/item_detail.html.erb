@@ -10,9 +10,7 @@
 <div class="div_page_background">
   <label class="label_page_title">Atom Management</label>
   <br><br>
-
   <div class="div_itemd_background">
-
     <div class="div_cd_left">
       <label class="label_ititle">Details</label>
       <%if session[:account_type] == 'curator' %>
@@ -21,42 +19,91 @@
     </div>
     <div class="div_cd_right">
       <div class="div_page_left">
-        <label class="label_cd_key">Type</label>
-      </div>
-      <div class="div_page_right">
-          <label class="label_cd_value"><%=@aim_atom["atype"]%></label>
-      </div><br>
-      <hr class="hr_cd"></hr>
-      <div class="div_page_left">
         <label class="label_cd_key">Title</label>
       </div>
       <div class="div_page_right">
-          <label class="label_cd_value"><%=@aim_atom["title"]%></label>
+        <label class="label_cd_value"><%=@aim_atom["title"]%></label>
+      </div><br>
+      <hr class="hr_cd"></hr>
+      <div class="div_page_left">
+        <label class="label_cd_key">IRT</label>
+      </div>
+      <div class="div_page_right">
+        <label class="label_cd_value">Nil</label>
+        <!--label class="label_cd_value"><%=@aim_atom["item_parameter"]%></label-->
       </div><br>
       <hr class="hr_cd"></hr>
       <div class="div_page_left">
         <label class="label_cd_key">Time(m)</label>
       </div>
       <div class="div_page_right">
-          <label class="label_cd_value"><%=@aim_atom["time"]%>m</label>
-      </div><br>
-      <hr class="hr_cd"></hr>
-      <div class="div_page_left">
-        <label class="label_cd_key">Points(credit)</label>
-      </div>
-      <div class="div_page_right">
-          <label class="label_cd_value"><%=@aim_atom["point"]%></label>
+        <label class="label_cd_value">Nil</label>
+        <!--label class="label_cd_value"><%=@aim_atom["time"]%></label-->
       </div><br>
       <hr class="hr_cd"></hr>
       <div class="div_page_left">
         <label class="label_cd_key">Difficulty</label>
       </div>
       <div class="div_page_right">
-          <label class="label_cd_value"><%=@aim_atom["difficulty"]%></label>
+        <label class="label_cd_value">Nil</label>
+        <!--label class="label_cd_value"><%=@aim_atom["difficulty"]%></label-->
+      </div><br>
+      <hr class="hr_cd"></hr>
+      <div class="div_page_left">
+        <label class="label_cd_key">Tags</label>
+      </div>
+      <div class="div_page_right">
+          <label class="label_cd_value"><%=@aim_atom["tags"]%></label>
+      </div>
+    </div>
+    <div>
+      <hr class="hr_cd2"></hr>
+      <div class="div_page_left">
+        <label class="label_cd_key2">Description</label>
+      </div>
+      <div class="div_page_right">
+          <label class="label_cd_value"><%=@aim_atom["description"]%></label>
+      </div>
+      <hr class="hr_cd2"></hr>
+      <div class="div_page_left">
+        <label class="label_cd_key2">Topic 1</label>
+      </div>
+      <div class="div_page_right">
+          <label class="label_cd_value"><%=@aim_atom["topic1"]%></label>
+      </div>
+      <hr class="hr_cd2"></hr>
+      <div class="div_page_left">
+        <label class="label_cd_key2">Learning Object 1</label>
+      </div>
+      <div class="div_page_right">
+          <label class="label_cd_value"><%=@aim_atom["lo1"]%></label>
+      </div>
+      <hr class="hr_cd2"></hr>
+      <div class="div_page_left">
+        <label class="label_cd_key2">Topic 2</label>
+      </div>
+      <div class="div_page_right">
+          <label class="label_cd_value"><%=@aim_atom["topic2"]%></label>
+      </div>
+      <hr class="hr_cd2"></hr>
+      <div class="div_page_left">
+        <label class="label_cd_key2">Learning Object 2</label>
+      </div>
+      <div class="div_page_right">
+          <label class="label_cd_value"><%=@aim_atom["lo2"]%></label>
       </div>
     </div>
   </div>
+  <!--div>
+    <lable class="label_page_title">Atom</label><br>
+    <div class="div_atom_block">
 
+      <iframe class="iframe_atom" width="600" height="300" src="https://www.youtube.com/embed/_C_DklqFoHs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
+      <label class="label_cd_value"><%=@aim_atom["title"]%></label><br>
+      <label class="label_cd_value"><%=@aim_atom["description"]%></label>
+    </div>
+
+  </div-->
 </div>
 
 <div class="modal fade" id="eni" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -73,16 +120,20 @@
           <label class="label_title">Title </label><br>
           <input type="text" name="title" required="true" class="input_edit" value="<%=@aim_atom["title"]%>">
           <br>
-          <label class="label_title">Type</label><br>
-          <input type="text" name="type" required="true" class="input_edit" value="<%=@aim_atom["atype"]%>"><br>
-          <label class="label_title">Time(m)</label><br>
-          <input type="text" name="time" required="true" class="input_edit" value="<%=@aim_atom["time"]%>"><br>
-          <label class="label_title">Point(credits)</label><br>
-          <input type="text" name="point" required="true" class="input_edit" value="<%=@aim_atom["point"]%>"><br>
-          <label class="label_title">Difficulty(5=hardest)</label><br>
-          <input type="text" name="difficulty" required="true" class="input_edit" value="<%=@aim_atom["difficulty"]%>"><br>
-          <label class="label_title">Description</label><br>
-          <textarea name="description" class="textarea_login" required="true"><%=@aim_atom["description"]%></textarea><br>
+          <label class="label_title">One sentence description</label><br>
+          <input type="text" name="description" required="true" class="input_edit" value="<%=@aim_atom["description"]%>"><br>
+          <label class="label_title">Topic 1</label><br>
+          <input type="text" name="t1" required="true" class="input_edit" value="<%=@aim_atom["topic1"]%>"><br>
+          <label class="label_title">Learning Object 1</label><br>
+          <input type="text" name="lo1" required="true" class="input_edit" value="<%=@aim_atom["lo1"]%>"><br>
+          <label class="label_title">Topic 2</label><br>
+          <input type="text" name="t2" required="true" class="input_edit" value="<%=@aim_atom["topic2"]%>"><br>
+          <label class="label_title">Learning Object 2</label><br>
+          <input type="text" name="lo2" required="true" class="input_edit" value="<%=@aim_atom["lo2"]%>"><br>
+          <label class="label_title">Tags (Please split with comma)</label><br>
+          <input type="text" name="tags" required="true" class="input_edit" value="<%=@aim_atom["tags"]%>"><br>
+          <!--label class="label_title">Description</label><br>
+          <textarea name="description" class="textarea_login" required="true"><%=@aim_atom["description"]%></textarea><br-->
         </p>
         <input type="submit" class="button_cd_update btn-success" value="Update"><br>
         </form>

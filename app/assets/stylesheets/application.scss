@@ -30,7 +30,7 @@ body{
   margin-left: 250px;
   height: 96%;
   padding: 1px;
-
+  min-width:1400px
 }
 
 .label_page_title{
@@ -133,11 +133,11 @@ body{
 }
 
 .li_dashboard_metadata{
- list-style-type: none;
- background: url("https://s3-ap-southeast-2.amazonaws.com/dmpc.asset/leadm-01.png")no-repeat 0 0;
- margin-top: 46px;
- padding-left: 30px;
- margin-left: 50px;
+  list-style-type: none;
+  background: url("https://s3-ap-southeast-2.amazonaws.com/dmpc.asset/leadm-01.png")no-repeat 0 0;
+  margin-top: 46px;
+  padding-left: 30px;
+  margin-left: 50px;
 }
 
 .li_dashboard_notifications{

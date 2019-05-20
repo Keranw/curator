@@ -10,17 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_17_042434) do
+ActiveRecord::Schema.define(version: 2019_05_18_075026) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "atoms", force: :cascade do |t|
-    t.string "type"
     t.string "title"
-    t.integer "time"
-    t.integer "point"
+    t.string "author"
+    t.string "institution"
+    t.string "description"
+    t.string "topic1"
+    t.string "lo1"
+    t.string "topic2"
+    t.string "lo2"
+    t.string "tags"
     t.integer "difficulty"
+    t.integer "time"
+    t.string "item_parameter"
+    t.integer "state", default: 0
+    t.integer "point"
+    t.string "atype"
+    t.string "source_course_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -31,6 +42,25 @@ ActiveRecord::Schema.define(version: 2019_05_17_042434) do
     t.string "department"
     t.string "curator"
     t.string "atoms", default: [], array: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "notices", force: :cascade do |t|
+    t.integer "aid"
+    t.integer "cid"
+    t.integer "uid"
+    t.string "description"
+    t.string "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.integer "utype"
+    t.string "username"
+    t.string "email"
+    t.string "password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

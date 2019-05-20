@@ -1,17 +1,20 @@
 class Atom < ApplicationRecord
   def self.create_atom(params)
-    temp = Atom.create(atype:params[:type], title:params[:title], time:params[:time], point:params[:point], difficulty:params[:difficulty], description:params[:description])
+
+    temp = Atom.create(author:"Curator", institution:"Univeristy of Wollongong", title:params[:title], description:params[:description], topic1:params[:t1], lo1:params["lo1"], topic2:params[:t2], lo2:params[:lo2], tags:params[:tags]#, time:params[:time], point:params[:point], difficulty:params[:difficulty]
+    )
     temp["id"]
   end
 
   def self.update_atom(params)
     aim_atom = Atom.find(params["aid"])
-    aim_atom["atype"] = params["type"]
-    aim_atom["title"] = params["title"]
-    aim_atom["time"] = params["time"]
-    aim_atom["point"] = params["point"]
-    aim_atom["difficulty"] = params["difficulty"]
     aim_atom["description"] = params["description"]
+    aim_atom["title"] = params["title"]
+    aim_atom["topic1"] = params["t1"]
+    aim_atom["topic2"] = params["t2"]
+    aim_atom["lo1"] = params["lo1"]
+    aim_atom["lo2"] = params["lo2"]
+    aim_atom["tags"] = params["tags"]
     aim_atom.save!
   end
 
