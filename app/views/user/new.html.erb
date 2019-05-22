@@ -23,19 +23,26 @@
 
 <div class="div_lg_right">
   <div class="div_top">
-    <label class="label_normal">Not a member?&nbsp;</label>
-    <a href="/user/new">Sign up</a><br>
+    <label class="label_normal">Already have an account?&nbsp;</label>
+    <a href="/">Log in</a><br>
   </div>
-  <div class="div_middle"><br>
-    <label class="label_lg_name">Curator</label><br>
-    <form action='/user/login' method='post'>
+  <div class="div_middle2"><br>
+    <form action='/user/create_new_account' method='post'>
       <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
       <label class="label_lg_title">Email</label><br>
-      <input  name="email" required="true" type="email" class="input_login"><br><br>
+      <input  name="email" required="true" type="text" class="input_login"><br>
+      <label class="label_lg_title">Username </label><br>
+      <input  name="username" required="true" type="text" class="input_login"><br>
+      <label class="label_lg_title">Department </label><br>
+      <input  name="department" required="true" type="text" class="input_login"><br>
       <label class="label_lg_title">Password </label><br>
-      <input  name="password" required="true" type="password" class="input_login"><br><br>
+      <input  name="password" required="true" type="password" class="input_login"><br>
+      <label class="label_lg_title">Password Confirm</label><br>
+      <input  name="password2" required="true" type="password" class="input_login"><br><br>
+      <input type="checkbox" name="atype" class="form-check-input">
+      <label class="label_normal">&nbsp;&nbsp;Are you a curator?</label>
       <label style="color:red;"><%= flash[:login_error] %></label><br>
-      <input type="submit" value="Login" class="btn-success input_button"><br><br>
+      <input type="submit" value="Sign Up" class="btn-success input_button"><br>
     </form>
   </div>
 </div>

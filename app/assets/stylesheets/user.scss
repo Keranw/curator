@@ -14,6 +14,12 @@
   margin-right: 20%;
 }
 
+.div_top{
+ margin-right: 50px;
+ margin-top: 30px;
+ float: right;
+}
+
 .div_lg_left{
   width: 50%;
   height: 100%;
@@ -29,10 +35,22 @@
 }
 
 .div_middle{
-  margin-top: 30%;
+  margin-top: 20%;
   margin-bottom: 30%;
   margin-left: 20%;
   width: 55%;
+}
+
+.div_middle2{
+  margin-top: 10%;
+  margin-bottom: 30%;
+  margin-left: 20%;
+  width: 55%;
+}
+
+.label_normal{
+  color: #AFBED6;
+  font-weight: 400;
 }
 
 .label_lg_title{

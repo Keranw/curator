@@ -61,6 +61,9 @@ ActiveRecord::Schema.define(version: 2019_05_18_075026) do
     t.string "username"
     t.string "email"
     t.string "password"
+    t.string "department"
+    t.integer "course_list", default: [], array: true
+    t.integer "atom_list", default: [], array: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
