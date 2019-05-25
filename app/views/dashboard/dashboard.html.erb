@@ -10,8 +10,38 @@
 <div class="div_page_background">
   <label class="label_page_title">Dashboard</label>
   <br>
-  <form>
-    <input class="input_search" type="text" value="">
+  <form method="get" action="/user/dashboard">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <input class="input_search" type="text" name="keyword">
     <input class="button_search btn-success" type="submit" value="Search">
-  </form>
+  </form><br>
+
+  <div class="div_courses_background">
+    <%if params["keyword"]%>
+      <label class="label_search_title">Results</label><br>
+      <%if @result.nil?%>
+        <label class="label_search_title">No course found with current keywords</label>
+      <%else%>
+        <%@result.each do |course|%>
+          <tr>
+            <div class="div_courses_container_inactive">
+              <label class="label_ctitle"><%=course["course_name"]%></label>
+              <%if session[:account_type] == "educator"%>
+                
+              <%end%><br>
+              <label class="label_cid">(<%=course["course_id"]%>)</label><br>
+              <label class="label_cinfo"><%=course["department"]%></label><br>
+              <label class="label_cinfo"><%=course["curator"]%></label>
+              <form method="get" action="/courses/detail">
+                <input name="authenticity_token" type="hidden" value="<%=form_authenticity_token%>">
+                <input name="id" type="hidden" value="<%=course["id"]%>">
+                <input class="button_course_detail" type="submit" value="Detail">
+              </form>
+            </div>
+          </tr>
+        <%end%>
+      <%end%>
+    <%end%>
+  </div>
+
 </div>

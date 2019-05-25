@@ -24,4 +24,5 @@ class Atom < ApplicationRecord
     aim_atom.save!
   end
 
+
 end

@@ -26,4 +26,32 @@ class User < ApplicationRecord
       0
     end
   end
+
+  def self.update_account(params)
+    aim_user = User.find(params["id"])
+    aim_user["username"] = params["username"]
+    aim_user["email"] = params["email"]
+    aim_user["department"] = params["department"]
+    aim_user.save!
+  end
+
+  def self.update_password(params)
+    aim_user = User.find(params["id"])
+    aim_user["password"] = params["password1"]
+    aim_user.save!
+  end
+
+  def self.follow_course(user_id, course_id)
+    aim_user = User.find(params["id"])
+    aim_user["course_list"].push(course_id).uniq!
+    aim_user.save!
+  end
+
+  def self.unfollow_course(user_id, course_id)
+    aim_user = User.find(params["id"])
+    aim_user["course_list"].delete(course_id)
+    aim_user.save!
+  end
+
+
 end

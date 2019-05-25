@@ -1,12 +1,15 @@
 class AccountManagementController < ApplicationController
   def account_management
+    @aim_user = User.find(session[:current_user_id])
   end
 
   def profile_update
+    User.update_account(params)
     redirect_to user_account_management_path
   end
 
   def password_update
+    User.update_password(params)
     redirect_to user_account_management_path
   end
 

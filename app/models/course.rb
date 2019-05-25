@@ -27,4 +27,12 @@ class Course < ApplicationRecord
     list = Course.where(id: aim_user["course_list"])
   end
 
+  def self.search_course(term)
+    # 根据term筛选出目标内容
+    result = Course.all
+    if result.is_a? Course
+      result = [result]
+    end
+    result
+  end
 end
