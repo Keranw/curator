@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   post 'user/login' => 'user#login'
   get 'user/logout' => 'user#logout'
   get 'user/new' => 'user#new'
-
+  post 'user/follow_course' => 'user#follow_course'
+  post 'user/unfollow_course' => 'user#unfollow_course'
   get 'user/recommends' => 'user#recommends'
   ##############################################################################
   get 'user/account_management' => 'account_management#account_management'

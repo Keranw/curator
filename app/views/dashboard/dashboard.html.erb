@@ -24,20 +24,30 @@
       <%else%>
         <%@result.each do |course|%>
           <tr>
-            <div class="div_courses_container_inactive">
-              <label class="label_ctitle"><%=course["course_name"]%></label>
-              <%if session[:account_type] == "educator"%>
-                
-              <%end%><br>
-              <label class="label_cid">(<%=course["course_id"]%>)</label><br>
-              <label class="label_cinfo"><%=course["department"]%></label><br>
-              <label class="label_cinfo"><%=course["curator"]%></label>
-              <form method="get" action="/courses/detail">
-                <input name="authenticity_token" type="hidden" value="<%=form_authenticity_token%>">
-                <input name="id" type="hidden" value="<%=course["id"]%>">
-                <input class="button_course_detail" type="submit" value="Detail">
-              </form>
-            </div>
+            <%if follow_state(course["id"], session[:current_user_id])%>
+              <div class="div_courses_container_active">
+            <%else%>
+              <div class="div_courses_container_inactive">
+            <%end%>
+                <label class="label_ctitle"><%=course["course_name"]%></label>
+                <!--div class="div_page_left">
+                </div-->
+                <!--div class="div_page_right">
+                  <%if session[:account_type] == "educator"%>
+                    <form>
+                      <input type="submit" class="radio_on" value="">
+                    </form>
+                  <%end%>
+                </div><br><br--><br>
+                <label class="label_cid">(<%=course["course_id"]%>)</label><br>
+                <label class="label_cinfo"><%=course["department"]%></label><br>
+                <label class="label_cinfo"><%=course["curator"]%></label>
+                <form method="get" action="/courses/detail">
+                  <input name="authenticity_token" type="hidden" value="<%=form_authenticity_token%>">
+                  <input name="id" type="hidden" value="<%=course["id"]%>">
+                  <input class="button_course_detail" type="submit" value="Detail">
+                </form>
+              </div>
           </tr>
         <%end%>
       <%end%>

@@ -50,4 +50,14 @@ class UserController < ApplicationController
   def recommends
   end
 
+  def follow_course
+    User.follow_course(params["user_id"], params["course_id"])
+    redirect_to courses_detail_path(:authenticity_token=>form_authenticity_token,:id=>params["course_id"])
+  end
+
+  def unfollow_course
+    User.unfollow_course(params["user_id"], params["course_id"])
+    redirect_to courses_detail_path(:authenticity_token=>form_authenticity_token,:id=>params["course_id"])
+  end
+
 end

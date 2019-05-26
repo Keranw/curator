@@ -20,21 +20,31 @@
   </div>
 
   <div class="div_courses_background">
-    <%@list.each do |course|%>
-      <tr>
-        <div class="div_courses_container_inactive">
-          <label class="label_ctitle"><%=course["course_name"]%></label>
-          <label class="label_cstate_ip">History</label><br>
-          <label class="label_cid">(<%=course["course_id"]%>)</label><br>
-          <label class="label_cinfo"><%=course["department"]%></label><br>
-          <label class="label_cinfo"><%=course["curator"]%></label>
-          <form method="get" action="/courses/detail">
-            <input name="authenticity_token" type="hidden" value="<%=form_authenticity_token%>">
-            <input name="id" type="hidden" value="<%=course["id"]%>">
-            <input class="button_course_detail" type="submit" value="Detail">
-          </form>
-        </div>
-      </tr>
+  <%if !@list.empty?%>
+
+      <%@list.each do |course|%>
+        <tr>
+          <div class="div_courses_container_inactive">
+            <label class="label_ctitle"><%=course["course_name"]%></label>
+            <label class="label_cstate_ip">History</label><br>
+            <label class="label_cid">(<%=course["course_id"]%>)</label><br>
+            <label class="label_cinfo"><%=course["department"]%></label><br>
+            <label class="label_cinfo"><%=course["curator"]%></label>
+            <form method="get" action="/courses/detail">
+              <input name="authenticity_token" type="hidden" value="<%=form_authenticity_token%>">
+              <input name="id" type="hidden" value="<%=course["id"]%>">
+              <input class="button_course_detail" type="submit" value="Detail">
+            </form>
+          </div>
+        </tr>
+      <%end%>
+
+    <%else%>
+      <%if session[:account_type] == "educator"%>
+        <label class="label_page_title">You have no following course. </label>
+      <%else%>
+        <label class="label_page_title">Please create a course. </label>
+      <%end%>
     <%end%>
   </div>
 

@@ -42,14 +42,14 @@ class User < ApplicationRecord
   end
 
   def self.follow_course(user_id, course_id)
-    aim_user = User.find(params["id"])
-    aim_user["course_list"].push(course_id).uniq!
+    aim_user = User.find(user_id)
+    aim_user["course_list"].push(course_id.to_i).uniq!
     aim_user.save!
   end
 
   def self.unfollow_course(user_id, course_id)
-    aim_user = User.find(params["id"])
-    aim_user["course_list"].delete(course_id)
+    aim_user = User.find(user_id)
+    aim_user["course_list"].delete(course_id.to_i)
     aim_user.save!
   end
 

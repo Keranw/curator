@@ -168,6 +168,34 @@
   height: 59px;
 }
 
+.radio_on{
+  display: inline-block;
+  width:28px;
+  height:28px;
+  background: url("https://s3-ap-southeast-2.amazonaws.com/dmpc.asset/radio_on.png") no-repeat;
+  margin-top: 10px;
+  margin-right: 25px;
+  border:0;
+}
+
+.radio_off{
+  display: inline-block;
+  width:28px;
+  height:28px;
+  background: url("https://s3-ap-southeast-2.amazonaws.com/dmpc.asset/radio_off.png") no-repeat;
+  margin-top: 10px;
+  margin-right: 25px;
+  border:0;
+}
+
+.label_follow{
+  font-family:Avenir-Black;
+  font-size:18px;
+  color:#a9b9d3;
+  letter-spacing:0px;
+  margin-top: 14px;
+}
+
 .label_ittitle{
   font-family:Avenir-Black;
   font-size:18px;
