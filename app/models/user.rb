@@ -36,8 +36,9 @@ class User < ApplicationRecord
   end
 
   def self.update_password(params)
-    aim_user = User.find(params["id"])
+    aim_user = User.find(params["id"].to_i)
     aim_user["password"] = params["password1"]
+    aim_user["reset_token"] = nil
     aim_user.save!
   end
 
@@ -53,5 +54,12 @@ class User < ApplicationRecord
     aim_user.save!
   end
 
+  def self.create_reset_token(user)
+    user.update_attribute(:reset_token, SecureRandom.urlsafe_base64)
+    user["reset_token"]
+  end
 
+  def self.delete_reset_token()
+
+  end
 end

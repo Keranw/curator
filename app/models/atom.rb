@@ -1,7 +1,7 @@
 class Atom < ApplicationRecord
-  def self.create_atom(params)
+  def self.create_atom(params, author, department)
 
-    temp = Atom.create(author:"Curator", institution:"Univeristy of Wollongong", title:params[:title], description:params[:description], topic1:params[:t1], lo1:params["lo1"], topic2:params[:t2], lo2:params[:lo2], tags:params[:tags]#, time:params[:time], point:params[:point], difficulty:params[:difficulty]
+    temp = Atom.create(author:author, institution:department, title:params[:title], description:params[:description], topic1:params[:t1], lo1:params["lo1"], topic2:params[:t2], lo2:params[:lo2], tags:params[:tags]#, time:params[:time], point:params[:point], difficulty:params[:difficulty]
     )
     temp["id"]
   end

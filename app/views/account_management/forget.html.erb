@@ -23,20 +23,18 @@
 
 <div class="div_lg_right">
   <div class="div_top">
-    <label class="label_normal">Not a member?&nbsp;</label>
-    <a href="/user/new">Sign up</a><br>
+    <label class="label_normal">Already have an account?&nbsp;</label>
+    <a href="/">Log in</a><br>
   </div>
+
   <div class="div_middle"><br>
-    <label class="label_lg_name">Curator</label><br>
-    <form action='/user/login' method='post'>
+    <label class="label_lg_name">Password Reset</label><br>
+    <form action='/user/reset' method='post'>
       <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
       <label class="label_lg_title">Email</label><br>
-      <input  name="email" required="true" type="email" class="input_login"><br><br>
-      <label class="label_lg_title">Password </label><br>
-      <input  name="password" required="true" type="password" class="input_login">
-      <a class="a_forget" href='/user/forget'>Forget Password?</a><br><br><br>
+      <input name="email" required="true" type="email" class="input_login">
       <label style="color:red;"><%= flash[:login_error] %></label><br>
-      <input type="submit" value="Login" class="btn-success input_button"><br><br>
+      <input type="submit" value="Reset" class="btn-success input_button"><br><br>
     </form>
   </div>
 </div>

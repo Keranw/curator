@@ -40,7 +40,7 @@ class CoursesController < ApplicationController
   end
 
   def create_atom
-    aid = Atom.create_atom(params)
+    aid = Atom.create_atom(params, session[:current_user_name], session[:current_user_depart])
     Course.insert_atom(params["cid"], aid)
     redirect_to courses_detail_path(:authenticity_token=>form_authenticity_token,:id=>params["cid"])
   end

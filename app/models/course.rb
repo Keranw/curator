@@ -28,11 +28,30 @@ class Course < ApplicationRecord
   end
 
   def self.search_course(term)
-    # 根据term筛选出目标内容
-    result = Course.all
+    term = term.strip
+    if term.empty?
+      []
+    else
+      # 远端搜索
+      # TBD
+      # 本地搜索
+      result_p1 = []
+      result_p2 = []
+      Course.all.each do |course|
+        if course["course_name"].include?(term.to_s)
+          result_p1.push(course)
+        elsif course["course_id"].include?(term.to_s)
+          result_p2.push(course)
+        end
+      end
+      result = (result_p1 + result_p2).uniq
+=begin
     if result.is_a? Course
       result = [result]
     end
     result
+=end
+    end
   end
+
 end

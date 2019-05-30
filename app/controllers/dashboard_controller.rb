@@ -3,7 +3,6 @@ class DashboardController < ApplicationController
     if params["keyword"]
       @result = Course.search_course(params["keyword"])
     end
-    
   end
 
 

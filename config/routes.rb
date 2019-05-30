@@ -14,8 +14,13 @@ Rails.application.routes.draw do
   post 'user/profile_update' => 'account_management#profile_update'
   post 'user/password_update' => 'account_management#password_update'
   post 'user/create_new_account' => 'account_management#create_new_account'
+  get 'user/forget' => 'account_management#forget'
+  post 'user/reset' => 'account_management#reset'
   ##############################################################################
   get 'user/dashboard' => 'dashboard#dashboard'
+  ##############################################################################
+  get 'password_reset/:token/index' => 'account_management#reset_index'
+  post 'password_reset/reset' => 'account_management#reset_my_password'
   ##############################################################################
   get 'user/notifications' => 'notifications#notifications'
   ##############################################################################

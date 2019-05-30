@@ -40,6 +40,7 @@ gem 'bootsnap', '>= 1.1.0', '< 1.4.2', require: false
 gem 'bootstrap-sass'
 gem 'bootstrap-switch-rails'
 gem 'jquery-rails'
+gem 'firebase'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

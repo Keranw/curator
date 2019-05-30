@@ -22,4 +22,33 @@ class AccountManagementController < ApplicationController
     end
     redirect_to root_path
   end
+
+  def forget
+  end
+
+  def reset
+    @aim_user = User.find_by(email:params["email"].downcase)
+    if @aim_user.nil?
+      flash[:login_error] = "The account doesn't exist!"
+      redirect_to user_forget_path
+    else
+      User.create_reset_token(@aim_user)
+      reset_url = 'http://'+ $host + '/password_reset/' + @aim_user["reset_token"] + '/index?email=' + @aim_user[:email].split('@')[0] + '%40' + @aim_user[:email].split('@')[1]
+      AccountMailer.password_reset(reset_url, @aim_user["email"], @aim_user["username"]).deliver_later
+
+      flash[:login_error] = "The email with reset link has been sent!"
+      redirect_to root_path
+    end
+  end
+
+  def reset_index
+    # params email:string token:string
+  end
+
+  def reset_my_password
+    # params id:string password1:string
+    User.update_password(params)
+    flash[:login_error] = "You can login with your new password now!"
+    redirect_to root_path
+  end
 end
