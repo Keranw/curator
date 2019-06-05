@@ -21,6 +21,11 @@ class Course < ApplicationRecord
     aim_course.save!
   end
 
+  def self.return_my_followed_course(id)
+    aim_user = User.find(id)
+    list = Course.where(id: aim_user["follow_course_list"])
+  end
+
   def self.return_my_course(id)
     aim_user = User.find(id)
     #list = Course.find_all_by_id(aim_user["course_list"])

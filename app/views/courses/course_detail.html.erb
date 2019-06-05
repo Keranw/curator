@@ -13,8 +13,8 @@
     <label class="label_page_title">Course Details</label>
   </div>
   <div class="div_cm_right">
-    <%if session[:account_type] == "educator"%>
-      <%if follow_state(params["id"], session[:current_user_id])%>
+    <%@recode = return_relationship(params["id"], session[:current_user_id])%>
+      <%if @recode == 1%>
         <form method="post" action="/user/unfollow_course">
           <div class="div_page_left">
             <input name="authenticity_token" type="hidden" value="<%=form_authenticity_token%>">
@@ -26,7 +26,7 @@
             <label class="label_follow">Follow</label>
           </div>
         </form>
-      <%else%>
+      <%elsif @recode ==2%>
         <form method="post" action="/user/follow_course">
           <div class="div_page_left">
             <input name="authenticity_token" type="hidden" value="<%=form_authenticity_token%>">
@@ -39,7 +39,6 @@
           </div>
         </form>
       <%end%>
-    <%end%>
   </div>
   <br><br>
 
@@ -68,7 +67,7 @@
 
     <div class="div_cd_left">
       <label class="label_dtitle">Metadata</label><br>
-      <%if session[:account_type] == 'curator' %>
+      <%if @recode == 0 %>
         <button class="button_metadata" data-toggle="modal" data-target="#metadata"></button>
       <%end%>
     </div>
@@ -110,7 +109,7 @@
   </div>
 
   <div class="div_ci_right">
-    <%if session[:account_type] == 'curator' %>
+    <%if @recode == 0 %>
       <!--a href="/user/new_course" class="a_createnewi">Add New</a-->
       <a href="javascript:void(0);" class="a_createnewi" data-toggle="modal" data-target="#cni">Add New</a>
     <%end%>
@@ -127,7 +126,7 @@
       <th width=12%>TOPIC1</th>
       <th width=12%>TOPIC2</th>
       <th width=10%>TAGS</th>
-      <%if session[:account_type] == 'curator' %>
+      <%if @recode == 0 %>
         <th width=14%>MANAGEMENT</th>
       <%end%>
     </tr>
@@ -146,6 +145,7 @@
             <form method="get" action="/courses/detail/items">
               <input name="authenticity_token" type="hidden" value="<%=form_authenticity_token%>">
               <input name="aid" type="hidden" value="<%=aim_atom["id"]%>">
+              <input name="recode" type="hidden" value="<%=@recode%>">
               <input type="submit" class="button_link" value="<%=aim_atom["title"]%>"></input><br>
             </form>
             <label class="label_item_description"><%=aim_atom["description"]%></label>
@@ -166,7 +166,7 @@
           <td>
             <label class="label_primary"><%=aim_atom["tags"]%>
           </td>
-          <%if session[:account_type] == 'curator' %>
+          <%if @recode == 0 %>
             <td>
               <form method="get" action="/courses/detail/items" class="form_edit">
                 <input name="authenticity_token" type="hidden" value="<%=form_authenticity_token%>">

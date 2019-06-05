@@ -21,7 +21,7 @@ body{
   min-height:inherit!important;
   height: 100%;
   min-height: 700px;
-  min-width: 1500px;
+  min-width: 1000px;
   background-color: #F9FAFE;
   margin: 0px;
 }
@@ -30,7 +30,7 @@ body{
   margin-left: 250px;
   height: 96%;
   padding: 1px;
-  min-width:1400px
+  min-width:1000px
 }
 
 .label_page_title{
@@ -38,8 +38,8 @@ body{
   font-size:18px;
   color:#a9b9d3;
   letter-spacing:0px;
-  margin-left: 40px;
-  margin-top: 23px;
+  margin-left: 20px;
+  margin-top: 20px;
   margin-bottom: 7px;
 }
 
@@ -57,7 +57,7 @@ body{
 .sidebar_dashboard{
   float: left;
   display: inline;
-  width: 300px;
+  width: 230px;
   height: 121%;
   padding-left: 0px;
   background-color: #1A234A;
@@ -72,7 +72,7 @@ body{
    height:20px;
    display: inline;
    float: right;
-   margin-right: 15px;
+   margin-right: 20px;
    text-align: center;
 }
 
@@ -96,16 +96,16 @@ body{
 
 .label_notinum{
   font-family:Avenir-Medium;
- font-size:16px;
- color:#ffffff;
- letter-spacing:0px;
+  font-size:16px;
+  color:#ffffff;
+  letter-spacing:0px;
 }
 
 .label_fake_logo{
   color:white;
   font-family:Avenir-Medium;
   font-size:40px;
-  margin-left: 70px;
+  margin-left: 40px;
 }
 
 .li_dashboard_dashboard{
@@ -113,7 +113,7 @@ body{
   background: url("https://s3-ap-southeast-2.amazonaws.com/dmpc.asset/dashboard.png")no-repeat 0 0;
   margin-top: 30px;
   padding-left: 30px;
-  margin-left: 50px;
+  margin-left: 30px;
 }
 
 .li_dashboard_accountmanagement{
@@ -121,7 +121,7 @@ body{
   background: url("https://s3-ap-southeast-2.amazonaws.com/dmpc.asset/sales+management.png")no-repeat 0 0;
   margin-top: 46px;
   padding-left: 30px;
-  margin-left: 50px;
+  margin-left: 30px;
 }
 
 .li_dashboard_recommends{
@@ -129,7 +129,7 @@ body{
   background: url("https://s3-ap-southeast-2.amazonaws.com/dmpc.asset/message+centre.png") no-repeat 0 0;
   margin-top: 46px;
   padding-left: 30px;
-  margin-left: 50px;
+  margin-left: 30px;
 }
 
 .li_dashboard_metadata{
@@ -137,7 +137,15 @@ body{
   background: url("https://s3-ap-southeast-2.amazonaws.com/dmpc.asset/leadm-01.png")no-repeat 0 0;
   margin-top: 46px;
   padding-left: 30px;
-  margin-left: 50px;
+  margin-left: 30px;
+}
+
+.li_dashboard_course{
+  list-style-type: none;
+  background: url("https://s3-ap-southeast-2.amazonaws.com/dmpc.asset/campaigns.png")no-repeat 0 0;
+  margin-top: 46px;
+  padding-left: 30px;
+  margin-left: 30px;
 }
 
 .li_dashboard_notifications{
@@ -145,7 +153,7 @@ body{
   background: url("https://s3-ap-southeast-2.amazonaws.com/dmpc.asset/notifications.png") no-repeat 0 0;
   margin-top: 46px;
   padding-left: 30px;
-  margin-left: 50px;
+  margin-left: 30px;
 }
 
 /////////////////////////////////////////////////////////////////////
@@ -154,7 +162,7 @@ body{
   box-shadow: 0 0 5px rgba(0,0,0,.1);
   margin-right:0px;
   width:auto;
-  height: 65px;
+  height: 50px;
   background-color: white;
   min-width: 100px;
 }
@@ -168,7 +176,7 @@ body{
 }
 
 .state_bar_left{
-  margin-top: 18px;
+  margin-top: 10px;
   margin-left: 40px;
   margin-bottom: 10px;
   float: left;
@@ -189,7 +197,7 @@ body{
   width:69px;
   height:29px;
   margin-right: 40px;
-  margin-top: 15px;
+  margin-top: 10px;
 }
 
 .button_logoff:hover{
@@ -201,6 +209,6 @@ body{
   width:69px;
   height:29px;
   margin-right: 40px;
-  margin-top: 15px;
+  margin-top: 10px;
 }
 /////////////////////////////////////////////////////////////////////

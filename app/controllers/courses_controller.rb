@@ -1,6 +1,13 @@
 class CoursesController < ApplicationController
 
   def courses
+    @list = Course.return_my_followed_course(session["current_user_id"])
+    if @list.nil?
+      @list = []
+    end
+  end
+
+  def my_courses
     @list = Course.return_my_course(session["current_user_id"])
     if @list.nil?
       @list = []
@@ -17,7 +24,7 @@ class CoursesController < ApplicationController
   def create
     #params course_name:string course_id:string department:string curator:string
     Course.create_course(params, session[:current_user_id])
-    redirect_to user_courses_path
+    redirect_to user_course_management_path
   end
 
   def update

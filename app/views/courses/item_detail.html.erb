@@ -13,8 +13,9 @@
   <div class="div_itemd_background">
     <div class="div_cd_left">
       <label class="label_ititle">Details</label>
-      <%if session[:account_type] == 'curator' %>
-        <button class="button_metadata" data-toggle="modal" data-target="#eni"></button>
+
+      <%if params["recode"].to_i == 0 %>
+        <button class="button_detail_data" data-toggle="modal" data-target="#eni"></button>
       <%end%>
     </div>
     <div class="div_cd_right">

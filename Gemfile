@@ -41,6 +41,7 @@ gem 'bootstrap-sass'
 gem 'bootstrap-switch-rails'
 gem 'jquery-rails'
 gem 'firebase'
+gem 'mail', '~> 2.7'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

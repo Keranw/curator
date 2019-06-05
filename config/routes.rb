@@ -35,5 +35,7 @@ Rails.application.routes.draw do
   post 'courses/create_atom' => 'courses#create_atom'
   post 'courses/update_atom' => 'courses#update_atom'
   post 'courses/delete_atom' => 'courses#delete_atom'
+  ##############################################################################
+  get 'user/course_management' => 'courses#my_courses' 
 
   end

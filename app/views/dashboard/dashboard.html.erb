@@ -25,10 +25,10 @@
       <%else%>
         <%@result.each do |course|%>
           <tr>
-            <%if follow_state(course["id"], session[:current_user_id])%>
-              <div class="div_courses_container_active">
-            <%else%>
+            <%if return_relationship(course["id"], session[:current_user_id]) == 2%>
               <div class="div_courses_container_inactive">
+            <%else%>
+              <div class="div_courses_container_active">
             <%end%>
                 <label class="label_ctitle"><%=course["course_name"]%></label>
                 <!--div class="div_page_left">

@@ -68,7 +68,7 @@
 }
 
 .div_courses_background{
-  margin-left: 80px;
+  margin-left: 10px;
   margin-top: 70px;
 }
 
@@ -86,7 +86,7 @@
   background:#ffffff;
   box-shadow:0px 1px 3px 0px rgba(202,208,211,0.60);
   border-radius:4px;
-  width:600px;
+  width:500px;
   height:240px;
   margin:10px;
   display: inline-block;
@@ -104,7 +104,7 @@
   width:850px;
   height:240px;
   margin-bottom: 30px;
-  margin-left: 40px;
+  margin-left: 20px;
   display: inline-block;
 }
 
@@ -116,7 +116,7 @@
   height:600px;
   //height:300px;
   margin-bottom: 30px;
-  margin-left: 40px;
+  margin-left: 20px;
   display: inline-block;
 }
 
@@ -160,11 +160,12 @@
   display: inline-block;
   float:left;
   height: 59px;
-  margin-right: 1000px;
+  //margin-right: 1000px;
   //margin-right: 650px;
 }
 
 .div_ci_right{
+  margin-left: 760px;
   height: 59px;
 }
 
@@ -211,7 +212,7 @@
   font-size:18px;
   color:#a9b9d3;
   letter-spacing:0px;
-  margin-left: 40px;
+  margin-left: 20px;
   margin-bottom: 7px;
 }
 
@@ -221,7 +222,7 @@
   color:#a9b9d3;
   letter-spacing:0px;
   margin-left: 70px;
-  margin-top: 90px;
+  margin-top: 100px;
 }
 
 .label_ititle{
@@ -230,7 +231,7 @@
   color:#a9b9d3;
   letter-spacing:0px;
   margin-left: 90px;
-  margin-top: 120px;
+  margin-top: 130px;
 }
 
 .label_ctitle{
@@ -378,7 +379,7 @@
 
 .table_course_info{
   height: auto;
-  width: 1250px;
+  width: 85%;
   //width: 900px;
   background-color: white;
   box-shadow:0px 1px 3px 0px rgba(202,208,211,0.60);
@@ -386,7 +387,7 @@
   font-family:Avenir-Medium;
   font-size:16px;
   letter-spacing: normal;
-  margin-left: 90px;
+  margin-left: 20px;
 }
 
 .td_item{
@@ -412,6 +413,15 @@
   background: url("https://s3-ap-southeast-2.amazonaws.com/dmpc.asset/edit.png") no-repeat 0 0;
   border:0;
   margin-left: 98px;
+  //margin-top: 6px;
+}
+
+.button_detail_data{
+  width:25px;
+  height:25px;
+  background: url("https://s3-ap-southeast-2.amazonaws.com/dmpc.asset/edit.png") no-repeat 0 0;
+  border:0;
+  margin-left: 108px;
   //margin-top: 6px;
 }
 

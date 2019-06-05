@@ -9,14 +9,15 @@
 <br>
 <div class="div_page_background">
   <div class="div_page_left">
-    <label class="label_page_title">Courses</label>
+    <label class="label_page_title">Course Management</label>
   </div>
-  <!--div class="div_page_right" style="margin-top:23px;">
+  <div class="div_page_right" style="margin-top:23px;">
     <%if session[:account_type] == 'curator' %>
+      <!--a href="/user/new_course" class="a_createnew">Create New</a-->
       <a href="javascript:void(0);" class="a_createnew" data-toggle="modal" data-target="#cnm">Create New</a>
       <a href="javascript:void(0);" class="a_import" data-toggle="modal" data-target="#myModal">Import</a>
     <%end%>
-  </div-->
+  </div>
 
   <div class="div_courses_background">
   <%if !@list.empty?%>
@@ -42,7 +43,7 @@
       <%if session[:account_type] == "educator"%>
         <label class="label_searching_result">You have no following course. </label>
       <%else%>
-        <label class="label_searching_result">You have no following course. </label>
+        <label class="label_searching_result">Please create a course. </label>
       <%end%>
     <%end%>
   </div>
