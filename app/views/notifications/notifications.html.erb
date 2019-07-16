@@ -1,7 +1,7 @@
 <%if session[:account_type] == "educator"%>
-  <%= render 'layouts/educatorsidebar' %>
+  <%= render 'layouts/educatorsidebar2' %>
 <%else%>
-  <%= render 'layouts/curatorsidebar' %>
+  <%= render 'layouts/curatorsidebar2' %>
 <%end%>
 
 <%= render 'layouts/stateline'%>
@@ -40,7 +40,7 @@
 
   <div class="div_message">
     <div class="div_page_left">
-      <label class="label_text">One of the atoms in your course have been deleted.
+      <label class="label_text">One relevant atom has been published.
     </div>
     <div class="div_page_right">
       <form action="/courses/detail" method="get">

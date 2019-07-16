@@ -212,3 +212,74 @@ body{
   margin-top: 10px;
 }
 /////////////////////////////////////////////////////////////////////
+
+.div_sidebar{
+  float: left;
+  display: inline;
+  width: 100%;
+  height: 65px;
+  padding-left: 0px;
+  background-color: #1A234A;
+  margin-left: 0px;
+  margin-top: 0px;
+}
+
+.li_sidebar_dashboard{
+  list-style-type: none;
+  background: url("https://s3-ap-southeast-2.amazonaws.com/dmpc.asset/dashboard.png")no-repeat 0 0;
+  margin-top: 15px;
+  padding-left: 25px;
+  padding-top: 5px;
+  margin-left: 50px;
+  display: inline-block;
+}
+
+.li_sidebar_account_management{
+  list-style-type: none;
+  background: url("https://s3-ap-southeast-2.amazonaws.com/dmpc.asset/sales+management.png")no-repeat 0 0;
+  margin-top: 15px;
+  padding-left: 25px;
+  padding-top: 5px;
+  margin-left: 30px;
+  display: inline-block;
+}
+
+.li_sidebar_recommends{
+  list-style-type: none;
+  background: url("https://s3-ap-southeast-2.amazonaws.com/dmpc.asset/message+centre.png")no-repeat 0 0;
+  margin-top: 15px;
+  padding-left: 25px;
+  padding-top: 5px;
+  margin-left: 30px;
+  display: inline-block;
+}
+
+.li_sidebar_metadata{
+  list-style-type: none;
+  background: url("https://s3-ap-southeast-2.amazonaws.com/dmpc.asset/leadm-01.png")no-repeat 0 0;
+  margin-top: 15px;
+  padding-left: 25px;
+  padding-top: 5px;
+  margin-left: 30px;
+  display: inline-block;
+}
+
+.li_sidebar_course{
+  list-style-type: none;
+  background: url("https://s3-ap-southeast-2.amazonaws.com/dmpc.asset/campaigns.png")no-repeat 0 0;
+  margin-top: 15px;
+  padding-left: 25px;
+  padding-top: 5px;
+  margin-left: 30px;
+  display: inline-block;
+}
+
+.li_sidebar_notifications{
+  list-style-type: none;
+  background: url("https://s3-ap-southeast-2.amazonaws.com/dmpc.asset/notifications.png")no-repeat 0 0;
+  margin-top: 15px;
+  padding-left: 25px;
+  padding-top: 5px;
+  margin-left: 30px;
+  display: inline-block;
+}

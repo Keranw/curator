@@ -1,5 +1,20 @@
 class UserController < ApplicationController
   def index
+=begin
+    bigquery = Google::Cloud::Bigquery.new project: "bigquery-public-data"
+
+    puts bigquery.datasets.count #=> 1
+    puts bigquery.datasets.first.dataset_id #=> "samples"
+
+    puts dataset = bigquery.datasets.first
+    puts tables = dataset.tables
+
+    puts tables.count #=> 7
+    puts tables.map &:table_id #=> [..., "shakespeare", "trigrams", "wikipedia"]
+=end
+  end
+
+  def sidebar
   end
 
   def login

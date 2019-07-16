@@ -6,7 +6,8 @@ class CreateCourses < ActiveRecord::Migration[5.2]
       t.string :department
       t.string :curator
       t.string :atoms, default:[], array:true
-      
+      t.integer :previous_version
+
       t.timestamps
     end
   end

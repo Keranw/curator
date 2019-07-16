@@ -41,6 +41,8 @@ gem 'bootstrap-sass'
 gem 'bootstrap-switch-rails'
 gem 'jquery-rails'
 gem 'firebase'
+gem 'google-cloud-bigquery'
+gem 'google-api-client', '~> 0.11'
 gem 'mail', '~> 2.7'
 
 group :development, :test do

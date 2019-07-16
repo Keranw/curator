@@ -36,6 +36,6 @@ Rails.application.routes.draw do
   post 'courses/update_atom' => 'courses#update_atom'
   post 'courses/delete_atom' => 'courses#delete_atom'
   ##############################################################################
-  get 'user/course_management' => 'courses#my_courses' 
-
+  get 'user/course_management' => 'courses#my_courses'
+  get 'user/sidebar' => 'user#sidebar'
   end
