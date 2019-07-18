@@ -1,16 +1,15 @@
+<%= render 'layouts/stateline'%>
 <%if session[:account_type] == "educator"%>
   <%= render 'layouts/educatorsidebar2' %>
 <%else%>
   <%= render 'layouts/curatorsidebar2' %>
 <%end%>
 
-<%= render 'layouts/stateline'%>
-
 <br>
 <div class="div_page_background">
   <div class="div_page_left">
     <label class="label_page_title">Courses</label>
-  </div>
+  </div><br><br>
   <!--div class="div_page_right" style="margin-top:23px;">
     <%if session[:account_type] == 'curator' %>
       <a href="javascript:void(0);" class="a_createnew" data-toggle="modal" data-target="#cnm">Create New</a>
@@ -25,7 +24,7 @@
         <tr>
           <div class="div_courses_container_inactive">
             <label class="label_ctitle"><%=course["course_name"]%></label>
-            <label class="label_cstate_ip">History</label><br>
+            <label class="label_cstate_ip"></label><br>
             <label class="label_cid">(<%=course["course_id"]%>)</label><br>
             <label class="label_cinfo"><%=course["department"]%></label><br>
             <label class="label_cinfo"><%=course["curator"]%></label>

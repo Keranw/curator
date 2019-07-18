@@ -1,10 +1,9 @@
+<%= render 'layouts/stateline'%>
 <%if session[:account_type] == "educator"%>
   <%= render 'layouts/educatorsidebar2' %>
 <%else%>
   <%= render 'layouts/curatorsidebar2' %>
 <%end%>
-
-<%= render 'layouts/stateline'%>
 
 <br>
 <div class="div_page_background">
